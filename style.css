@@ -133,11 +133,12 @@ button, input, select, textarea {
   padding: 1.5rem 0;
 }
 .section__container {
+  width: 100%;
   max-width: 75rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(0.75rem, 2%, 24px);
-  padding-right: clamp(0.75rem, 2%, 24px);
+  padding-left: clamp(0.75rem, 2%, 1.5rem);
+  padding-right: clamp(0.75rem, 2%, 1.5rem);
 }
 .section__row {
   display: flex;

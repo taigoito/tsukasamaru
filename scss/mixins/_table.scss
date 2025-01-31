@@ -1,18 +1,8 @@
 // Table
 
-@mixin table() {
-  width: 100%;
-
-  @media (max-width: breakpoint("sm") - 0.1px) {
-    display: block;
-  }
-
+@mixin makeTable() {
   thead, tbody {
     width: 100%;
-
-    @media (max-width: breakpoint("sm") - 0.1px) {
-      display: block;
-    }
   }
 
   thead {
@@ -25,18 +15,34 @@
     &:first-child {
       border-top: 1px solid themeColor("lighter");
     }
-
-    @media (max-width: breakpoint("sm") - 0.1) {
-      display: block;
-    }
   }
 
   th, td {
     padding: space();
     border: 0; // Reset
+  }
+}
 
-    @media (max-width: breakpoint("sm") - 0.1) {
+@mixin table() {
+  width: 100%;
+
+  @media (max-width: breakpoint("sm") - 0.1px) {
+    &, thead, tbody, tr, th, td {
       display: block;
     }
   }
+
+  @include makeTable();
+}
+
+@mixin fluidTable($width: 72rem) {
+  width: 100%;
+  overflow-x: auto;
+
+  table {
+    width: $width;
+    margin: 0 auto;
+  }
+
+  @include makeTable();
 }
