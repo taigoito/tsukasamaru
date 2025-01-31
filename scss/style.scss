@@ -18,8 +18,27 @@
 // Foundation
 @import "normalize";
 
+// Layout
+@import "header";
+@import "gNav";
+@import "footer";
+
+// Components
+@import "backToTop";
+@import "cover";
+@import "drawerMenu";
+@import "embed";
+@import "icon";
+@import "preloader";
+@import "responsiveColor";
+@import "slider";
+
 // Projects
+@import "hero";
 @import "section";
+@import "postItem";
+@import "postList";
+@import "form";
 
 // Utility
 //@import "utilities/flex";

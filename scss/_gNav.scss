@@ -1,0 +1,39 @@
+/**
+ * Layout - G Nav
+ */
+
+.gNav {
+  @include row(space-between);
+  height: 100%;
+
+  &__siteBrand {
+    flex: 0 1 9rem;
+    margin: 0;
+  }
+
+  &__primaryMenu {
+    @include listUnstyled();
+    @include row();
+    flex: 0 1 30rem;
+    margin: 0;
+
+    @media (max-width: breakpoint("md") - 0.1) {
+      display: none;
+    }
+  }
+
+  &__socialMenu {
+    @include listUnstyled();
+    @include row();
+    flex: 0 1 9rem;
+    margin: 0;
+
+    @media (max-width: breakpoint("md") - 0.1) {
+      display: none;
+    }
+  }
+
+  &__menuItem {
+    margin: 0;
+  }
+}

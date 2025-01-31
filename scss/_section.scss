@@ -1,16 +1,64 @@
 /**
- * Section
+ * Project - Section
  */
 
 .section {
-  position: relative;
-  padding: space(3) 0;
+  &__inner {
+    padding-top: space(4);
+    padding-bottom: space(4);
+    background-color: $bodyBg;
 
-  &__container {
-    @include container();
+    // Test Responsive Color
+    .section:nth-child(odd) & {
+      @include background("darker");
+    }
   }
 
-  &__row {
-    @include row();
+  &__heading {
+    margin: space(3) 0;
+    text-align: center;
+  }
+
+  &__container {
+    padding-top: space(2) + space(3);
+    padding-bottom: space(4);
+
+    &:not(.section--contact__container) {
+      @include container();
+    }
+  }
+
+  &--feature {
+    &__inner {
+      padding-bottom: space(4);
+    }
+
+    &__heading {
+      margin-bottom: space(4);
+    }
+  }
+
+  &--access {
+    &__inner {
+      padding-bottom: 0;
+    }
+
+    &__heading {
+      margin-bottom: space(4);
+    }
+  }
+
+  &--contact {
+    &__inner {
+      padding-top: space(4);
+    }
+
+    &__heading {
+      margin-bottom: space(4);
+    }
+
+    &__container {
+      @include container("md");
+    }
   }
 }
