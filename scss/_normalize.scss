@@ -10,8 +10,9 @@
 
 html {
   font-size: $rootFontSize;
+  scroll-behavior: smooth;
 }
- 
+
 body {
   margin: 0; // Remove the margin in all browsers
   background-color: $bodyBg;
@@ -23,16 +24,58 @@ body {
   -webkit-text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes in iOS
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin-top: $headingMarginTop;
+  margin-bottom: $headingMarginBottom;
+  font-family: $headingFontFamily;
+  font-weight: $headingFontWeight;
+  line-height: $headingLineHeight;
+  letter-spacing: $headingLetterSpacing;
+}
+
+h1 {
+  font-size: $h1FontSize;
+}
+
+h2 {
+  font-size: $h2FontSize;
+}
+
+h3 {
+  font-size: $h3FontSize;
+}
+
+h4 {
+  font-size: $h4FontSize;
+}
+
+h5 {
+  font-weight: bold;
+  font-size: $h5FontSize;
+}
+
+h6 {
+  font-weight: bold;
+  font-size: $h6FontSize;
+}
+
+p,
+ol, ul,
+li {
+  margin-top: $defaultMargin;
+  margin-bottom: $defaultMargin;
+}
+
+small {
+  @include smallText();
+}
+
+blockquote {
+  @include blockquote();
+}
+
 a {
-  &, &:active {
-    color: $linkColor;
-    text-decoration: none;
-  }
-  
-  &:hover, &:focus {
-    color: $linkHoverColor;
-    text-decoration: underline;
-  }
+  @include linkText();
 }
 
 img {
@@ -43,7 +86,12 @@ img {
 
 figure {
   display: block;
-  margin: 0;
+  margin: $defaultMargin auto;
+}
+
+figcaption {
+  @include smallText();
+  text-align: center;
 }
 
 table {
