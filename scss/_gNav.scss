@@ -9,23 +9,27 @@
   &__siteBrand {
     flex: 0 1 9rem;
     margin: 0;
+    font-weight: 500;
+
+    span {
+      display: block;
+      line-height: 1;
+
+      &:nth-child(1) {
+        margin-left: 0.2em;
+        font-size: 0.44em;
+      }
+
+      &:nth-child(2) {
+        font-size: 1.1em;
+      }
+    }
   }
 
   &__primaryMenu {
     @include listUnstyled();
-    @include row();
-    flex: 0 1 30rem;
-    margin: 0;
-
-    @media (max-width: breakpoint("md") - 0.1) {
-      display: none;
-    }
-  }
-
-  &__socialMenu {
-    @include listUnstyled();
-    @include row();
-    flex: 0 1 9rem;
+    @include row(space-between);
+    flex: 0 1 45rem;
     margin: 0;
 
     @media (max-width: breakpoint("md") - 0.1) {

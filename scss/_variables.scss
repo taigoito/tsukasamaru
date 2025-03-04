@@ -1,6 +1,17 @@
 // Variables
 
-//$fontFamilySansSerif:  "Noto Sans JP", sans-serif;
-//$fontFamilySerif:      "Noto Serif JP", serif;
-//$fontWeightSansSerif:  400;
-//$fontWeightSerif:      400;
+$themeColors:    (
+  darkest:         #262626, // 15%
+  darker:          #4d4d4d, // 30%
+  dark:            #808080, // 50%
+  light:           #b3b3b3, // 70%
+  lighter:         #d9d9d9, // 85%
+  lightest:        #ffffff, // 100%
+  primary:         #cc4c33, // hsl(10, 60%, 50%)
+  primaryLight:    #e09485, // hsl(10, 60%, 70%)
+  secondary:       #33bbff, // hsl(200, 100%, 60%)
+  tertiary:        #4d33cc  // hsl(250, 60%, 50%)
+);
+
+$fontFamilySansSerif:  "Zen Maru Gothic", serif;
+$fontWeightSansSerif:  400;

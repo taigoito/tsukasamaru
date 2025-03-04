@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /**
  * Foundation - Normalize
  */
@@ -17,8 +16,8 @@ body {
   margin: 0;
   background-color: #ffffff;
   color: #262626;
-  font-family: "游ゴシック", "Yu Gothic", sans-serif;
-  font-weight: 500;
+  font-family: "Zen Maru Gothic", serif;
+  font-weight: 400;
   line-height: 1.8;
   letter-spacing: 0;
   -webkit-text-size-adjust: 100%;
@@ -27,8 +26,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
-  font-family: "游ゴシック", "Yu Gothic", sans-serif;
-  font-weight: 500;
+  font-family: "Zen Maru Gothic", serif;
+  font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0;
 }
@@ -90,7 +89,7 @@ a, a:active {
   text-decoration: none;
 }
 a:hover, a:focus {
-  color: #3399cc;
+  color: #cc4c33;
   text-decoration: underline;
 }
 
@@ -158,34 +157,31 @@ button, input, select, textarea {
 .gNav__siteBrand {
   flex: 0 1 9rem;
   margin: 0;
+  font-weight: 500;
+}
+.gNav__siteBrand span {
+  display: block;
+  line-height: 1;
+}
+.gNav__siteBrand span:nth-child(1) {
+  margin-left: 0.2em;
+  font-size: 0.44em;
+}
+.gNav__siteBrand span:nth-child(2) {
+  font-size: 1.1em;
 }
 .gNav__primaryMenu {
   list-style: none;
   padding-left: 0;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  flex: 0 1 30rem;
+  flex: 0 1 45rem;
   margin: 0;
 }
 @media (max-width: 899.9px) {
   .gNav__primaryMenu {
-    display: none;
-  }
-}
-.gNav__socialMenu {
-  list-style: none;
-  padding-left: 0;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
-  flex: 0 1 9rem;
-  margin: 0;
-}
-@media (max-width: 899.9px) {
-  .gNav__socialMenu {
     display: none;
   }
 }
@@ -202,7 +198,7 @@ button, input, select, textarea {
  */
 .footer {
   padding: 6rem;
-  background-color: #3399cc;
+  background-color: #262626;
   color: #ffffff;
   text-align: center;
 }
@@ -235,11 +231,11 @@ button, input, select, textarea {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background-color: #3399cc;
+  background-color: #cc4c33;
   color: #ffffff;
 }
 .backToTop:hover .icon {
-  background-color: #85c2e0;
+  background-color: #e09485;
   color: #262626;
 }
 
@@ -304,7 +300,7 @@ button, input, select, textarea {
   height: 0.5rem;
   margin: 0.75rem;
   border-radius: 50%;
-  background-color: #3399cc;
+  background-color: #cc4c33;
   cursor: pointer;
 }
 .cover__navItem:not(.cover__navItem--current) {
@@ -363,7 +359,7 @@ button, input, select, textarea {
 
 .drawer--dark .drawer__navicon {
   background-color: transparent;
-  color: #3399cc;
+  color: #cc4c33;
 }
 .drawer--dark .drawer__close {
   background-color: transparent;
@@ -441,7 +437,7 @@ button, input, select, textarea {
   text-decoration: none;
 }
 .drawerMenu--dark {
-  background-color: #3399cc;
+  background-color: #cc4c33;
 }
 .drawerMenu--dark .drawerMenu__item a {
   color: #ffffff;
@@ -548,7 +544,7 @@ button, input, select, textarea {
   z-index: 900;
   width: 100%;
   height: 100vh;
-  background: #3399cc;
+  background: #cc4c33;
   opacity: 1;
   transition: opacity ease-in-out 0.5s;
 }
@@ -720,7 +716,7 @@ button, input, select, textarea {
   text-align: center;
 }
 .slider__prev:hover, .slider__next:hover {
-  color: #3399cc;
+  color: #cc4c33;
 }
 .slider__prev {
   left: 0;
@@ -741,7 +737,7 @@ button, input, select, textarea {
   height: 0.5rem;
   margin: 0.5rem;
   border-radius: 50%;
-  background-color: #3399cc;
+  background-color: #cc4c33;
   cursor: pointer;
 }
 .slider__navItem:not(.slider__navItem--current) {
@@ -759,13 +755,13 @@ button, input, select, textarea {
   align-items: center;
   width: 100%;
   height: calc(100vh - 9rem);
+  background-color: rgba(0, 0, 0, 0.3);
   color: #ffffff;
   text-align: center;
 }
 .hero__content {
   position: relative;
   z-index: 1;
-  font-size: 2rem;
 }
 
 /**
@@ -798,6 +794,35 @@ button, input, select, textarea {
   margin-right: auto;
   padding-left: clamp(0.75rem, 2%, 1.5rem);
   padding-right: clamp(0.75rem, 2%, 1.5rem);
+}
+.section__textBox {
+  width: min(100%, 48rem);
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+.section__table {
+  width: 100%;
+}
+@media (max-width: 599.9px) {
+  .section__table, .section__table thead, .section__table tbody, .section__table tr, .section__table th, .section__table td {
+    display: block;
+  }
+}
+.section__table thead, .section__table tbody {
+  width: 100%;
+}
+.section__table thead {
+  border: 0;
+}
+.section__table tr {
+  border-bottom: 1px solid #d9d9d9;
+}
+.section__table tr:first-child {
+  border-top: 1px solid #d9d9d9;
+}
+.section__table th, .section__table td {
+  padding: 0.75rem;
+  border: 0;
 }
 .section--feature__inner {
   padding-bottom: 3rem;
@@ -855,7 +880,7 @@ button, input, select, textarea {
   font-size: 1.25rem;
 }
 .postItem__button {
-  background-color: #3399cc;
+  background-color: #cc4c33;
   color: #ffffff;
   display: block;
   width: 12rem;
@@ -942,7 +967,7 @@ button, input, select, textarea {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: stretch;
 }
 .postList--grid .postList__item {
   width: 100%;
@@ -958,6 +983,9 @@ button, input, select, textarea {
     flex-shrink: 4;
     flex-basis: 24rem;
   }
+}
+.postList--grid .postItem__heading {
+  text-align: center;
 }
 .postList--grid .postItem__more {
   text-align: center;
@@ -1077,23 +1105,23 @@ button, input, select, textarea {
   opacity: 0.85;
 }
 .form__buttons [type=submit] {
-  background-color: #3399cc;
+  background-color: #cc4c33;
   color: #ffffff;
 }
 .form__buttons [type=submit] a, .form__buttons [type=submit] a:active, .form__buttons [type=submit] a:hover, .form__buttons [type=submit] a:focus {
   color: #ffffff;
 }
 .form__buttons [type=button] {
-  background-color: #ff9933;
+  background-color: #33bbff;
   color: #262626;
 }
 .form__buttons [type=button] a, .form__buttons [type=button] a:active, .form__buttons [type=button] a:hover, .form__buttons [type=button] a:focus {
   color: #262626;
 }
 .form__buttons [type=reset] {
-  background-color: #99cc33;
-  color: #262626;
+  background-color: #4d33cc;
+  color: #ffffff;
 }
 .form__buttons [type=reset] a, .form__buttons [type=reset] a:active, .form__buttons [type=reset] a:hover, .form__buttons [type=reset] a:focus {
-  color: #262626;
+  color: #ffffff;
 }
