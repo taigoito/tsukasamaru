@@ -3,329 +3,375 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starter Template</title>
+    <title>海辺の農園宿 つかさ丸 | 福井市越前海岸</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./favicon.ico">
   </head>
   <body>
-    <div id="app">
-      <header id="header" class="header">
-        <div class="header__inner">
-          <div class="header__container">
-            <nav id="gNav" class="gNav">
-              <h1 class="gNav__siteBrand">
-                <a href="/" v-html="title"></a>
-              </h1>
-              <ul class="gNav__primaryMenu">
-                <li class="gNav__menuItem" v-for="section in sections"><a :href="`#${section.id}`">{{ section.name }}</a></li>
-              </ul>
-              <ul class="gNav__socialMenu">
-                <template v-for="(item, key) in social">
-                  <li class="gNav__menuItem gNav__menuItem--social" v-if="item"><a :href="`https://${key}.com/`"><span :data-icon="`ei-sc-${key}`" data-size="m"></span></a></li>
-                </template>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </header>
-      <main id="main" class="main">
-        <header id="hero" class="hero">
-          <div class="hero__content">
-            <p v-html="message"></p>
-          </div>
-        </header>
-        <section :id="sections['feature'].id" class="section section--feature">
-          <div class="section__inner section--feature__inner">
-            <h2 class="section__heading section--feature__heading">{{ sections['feature'].name }}</h2>
-            <div class="slider">
-              <figure class="slider__inner">
-                <figure class="slider__item" v-for="item in sections['feature'].items">
-                  <img class="slider__image" :src="item.src">
-                  <figcaption class="slider__caption"><a href="#">{{ item.heading }}</a></figcaption>
-                </figure>
-              </figure>
-            </div>
-          </div>
-        </section>
-        <section :id="sections['about'].id" class="section">
-          <div class="section__inner">
-            <h2 class="section__heading">{{ sections['about'].name }}</h2>
-            <div class="section__container">
-              <article class="postItem postItem--single">
-                <figure class="postItem__image">
-                  <img :src="sections['about'].src">
-                </figure>
-                <div class="postItem__content">
-                  <h3 class="postItem__heading">{{ sections['about'].heading }}</h3>
-                  <p class="postItem__excerpt">{{ sections['about'].excerpt }}</p>
-                  <div class="postItem__more">
-                    <a class="postItem__button" href="#">{{ sections['about'].more }}</a>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-        <section :id="sections['service'].id" class="section">
-          <div class="section__inner">
-            <h2 class="section__heading">{{ sections['service'].name }}</h2>
-            <div class="section__container">
-              <div class="postList postList--grid">
-                <div class="postList__item" v-for="item in sections['service'].items">
-                  <section class="postItem">
-                    <figure class="postItem__image">
-                      <img :src="item.src">
-                    </figure>
-                    <div class="postItem__content">
-                      <div class="postItem__info">
-                        <div class="postItem__date">{{ item.data }}</div>
-                        <div class="postItem__terms">
-                          <a href="#" v-for="tag in item.tags">{{ tag }}</a>
-                        </div>
-                      </div>
-                      <h3 class="postItem__heading">{{ item.heading }}</h3>
-                      <p class="postItem__excerpt">{{ item.excerpt }}</p>
-                      <div class="postItem__more">
-                        <a href="#">{{ sections['service'].more }} &gt;</a>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section :id="sections['news'].id" class="section">
-          <div class="section__inner">
-            <h2 class="section__heading">{{ sections['news'].name }}</h2>
-            <div class="section__container">
-              <ul class="postList postList--list">
-                <li class="postList__item" v-for="item in sections['news'].items">
-                  <div class="postItem">
-                    <figure class="postItem__image">
-                      <img :src="item.src">
-                    </figure>
-                    <div class="postItem__content">
-                      <div class="postItem__info">
-                        <div class="postItem__date">{{ item.date }}</div>
-                        <div class="postItem__terms">
-                          <a href="#" v-for="tag in item.tags">{{ tag }}</a>
-                        </div>
-                      </div>
-                      <h3 class="postItem__heading">{{ item.heading }}</h3>
-                      <p class="postItem__excerpt">{{ item.excerpt }}</p>
-                      <div class="postItem__more">
-                        <a href="#">{{ sections['news'].more }} &gt;</a>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section :id="sections['team'].id" class="section">
-          <div class="section__inner">
-            <h2 class="section__heading">{{ sections['team'].name }}</h2>
-            <div class="section__container">
-              <article class="postItem postItem--single">
-                <figure class="postItem__image">
-                  <img :src="sections['team'].src">
-                </figure>
-                <div class="postItem__content">
-                  <h3 class="postItem__heading">{{ sections['team'].heading }}</h3>
-                  <p class="postItem__excerpt">{{ sections['team'].excerpt }}</p>
-                  <div class="postItem__more">
-                    <a class="postItem__button" href="#">{{ sections['team'].more }}</a>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-        <section :id="sections['access'].id" class="section section--access">
-          <div class="section__inner section--access__inner">
-            <h2 class="section__heading section--access__heading">{{ sections['access'].name }}</h2>
-            <div class="embed --mt_4">
-              <iframe :src="sections['access'].src"></iframe>
-              <div class="embed__cover">
-                <p class="embed__info">クリックするとマップを拡大/縮小できるようになります。</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section :id="sections['contact'].id" class="section section--contact">
-          <div class="section__inner">
-            <h2 class="section__heading">{{ sections['contact'].name }}</h2>
-            <div class="section__container section--contact__container">
-              <form class="form" method="post" action="./php/mail.php">
-                <table class="form__table">
-                  <tr>
-                    <th><label for="yourname">氏名<span class="required">*必須</span></label></th>
-                    <td><input id="yourname" size="30" type="text" name="氏名"></td>
-                  </tr>
-                  <tr>
-                    <th><label for="youremail">メールアドレス<span class="required">*必須</span></label></th>
-                    <td><input id="youremail" size="30" type="email" name="Email"></td>
-                  </tr>
-                  <tr>
-                    <th><label for="yoursubject">題名</label></th>
-                    <td>
-                      <select id="yoursubject" name="題名">
-                        <option value="ご質問・お問い合わせ">ご質問・お問い合わせ</option>
-                        <option value="その他">その他</option>
-                      </select>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th><label for="yourcontent">メッセージ本文</label></th>
-                    <td><textarea id="yourcontent" name="メッセージ本文" cols="30" rows="6"></textarea></td>
-                  </tr>
-                </table>
-                <div class="form__buttons">
-                  <input type="submit" value="確認">
-                </div>
-              </form>
-            </div>
-          </div>
-        </section>
-      </main>
-      <div class="cover fader preloader" data-spinner-off="true">
-        <div class="cover__inner">
-          <div class="cover__image cover__image--num_1"></div>
-          <div class="cover__image cover__image--num_2"></div>
-          <div class="cover__image cover__image--num_3"></div>
-          <div class="cover__image cover__image--num_4"></div>
+    <header id="header" class="header">
+      <div class="header__inner">
+        <div class="header__container">
+          <nav id="gNav" class="gNav">
+            <h1 class="gNav__siteBrand">
+              <span>海辺の農園宿</span>
+              <span>つかさ丸</span>
+            </h1>
+            <ul class="gNav__primaryMenu">
+              <li class="gNav__menuItem"><a href="#greeting">ご挨拶</a></li>
+              <li class="gNav__menuItem"><a href="#feature">近況報告</a></li>
+              <li class="gNav__menuItem"><a href="#service">田舎体験</a></li>
+              <li class="gNav__menuItem"><a href="#plan">宿泊プラン</a></li>
+              <li class="gNav__menuItem"><a href="#food">お料理</a></li>
+              <li class="gNav__menuItem"><a href="#access">アクセス</a></li>
+              <li class="gNav__menuItem"><a href="#contact">お問い合わせ</a></li>
+              <li class="gNav__menuItem gNav__menuItem--social"><a href="https://instagram.com/"><span data-icon="ei-sc-instagram" data-size="m"></span></a></li>
+            </ul>
+          </nav>
         </div>
       </div>
-      <footer id="footer" class="footer">
-        <small v-html="copyright"></small>
-      </footer>
+    </header>
+    <main id="main" class="main">
+      <header id="hero" class="hero">
+        <div class="hero__content">
+          <h2><span>海辺の農園宿「つかさ丸」とは</span>。</h2>
+          <p>ここは、福井市越前海岸の静かな漁村。
+            <br>この村に30年以上住んできた私たち夫婦が、
+            <br>農山漁村の豊かな「自然」や「食」を活用し、
+            <br>ひとときの「田舎暮らし」のお楽しみを提供します。</p>
+        </div>
+      </header>
+      <section id="greeting" class="section">
+        <div class="section__inner">
+          <h2 class="section__heading">ご挨拶</h2>
+          <div class="section__container">
+            <article class="postItem postItem--single">
+              <figure class="postItem__image">
+                <img src="./assets/sampleImg04.jpg">
+              </figure>
+              <div class="postItem__content">
+                <h3 class="postItem__heading">ようこそ、福井市越前海岸へ</h3>
+                <p class="postItem__excerpt">海辺の農園宿「つかさ丸」は、農山漁村の豊かな「自然」や「食」を活用し、都市にお住まいの皆さまとの交流を推進するための「農村漁村体験型宿泊施設」である農家民宿です。
+                  <br>一般の宿泊施設とは違うことをご理解の上、ご利用ください。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="feature" class="section">
+        <div class="section__inner section--feature__inner">
+          <h2 class="section__heading section--feature__heading">近況報告</h2>
+          <div class="slider">
+            <figure class="slider__inner">
+              <figure class="slider__item">
+                <img class="slider__image" src="./assets/sampleImg00.jpg">
+                <figcaption class="slider__caption">20XX年YY月ZZ日 受入の様子</figcaption>
+              </figure>
+              <figure class="slider__item">
+                <img class="slider__image" src="./assets/sampleImg01.jpg">
+                <figcaption class="slider__caption">20XX年YY月ZZ日 受入の様子</figcaption>
+              </figure>
+              <figure class="slider__item">
+                <img class="slider__image" src="./assets/sampleImg02.jpg">
+                <figcaption class="slider__caption">20XX年YY月ZZ日 受入の様子</figcaption>
+              </figure>
+              <figure class="slider__item">
+                <img class="slider__image" src="./assets/sampleImg03.jpg">
+                <figcaption class="slider__caption">20XX年YY月ZZ日 受入の様子</figcaption>
+              </figure>
+            </figure>
+          </div>
+        </div>
+      </section>
+      <section id="service" class="section">
+        <div class="section__inner">
+          <h2 class="section__heading">田舎体験</h2>
+          <div class="section__container">
+            <p class="section__textBox section__textBox--text_center">私たち夫婦が３０年以上続けてきた「田舎暮らし」の楽しみ方をご紹介します。</p>
+            <div class="postList postList--grid">
+              <div class="postList__item">
+                <section class="postItem">
+                  <figure class="postItem__image">
+                    <img src="./assets/sampleImg05.jpg">
+                  </figure>
+                  <div class="postItem__content">
+                    <h3 class="postItem__heading">漁船クルーズ体験</h3>
+                  </div>
+                </section>
+              </div>
+              <div class="postList__item">
+                <section class="postItem">
+                  <figure class="postItem__image">
+                    <img src="./assets/sampleImg06.jpg">
+                  </figure>
+                  <div class="postItem__content">
+                    <h3 class="postItem__heading">季節野菜の収穫体験</h3>
+                  </div>
+                </section>
+              </div>
+              <div class="postList__item">
+                <section class="postItem">
+                  <figure class="postItem__image">
+                    <img src="./assets/sampleImg00.jpg">
+                  </figure>
+                  <div class="postItem__content">
+                    <h3 class="postItem__heading">海岸散策</h3>
+                  </div>
+                </section>
+              </div>
+              <div class="postList__item">
+                <section class="postItem">
+                  <figure class="postItem__image">
+                    <img src="./assets/sampleImg01.jpg">
+                  </figure>
+                  <div class="postItem__content">
+                    <h3 class="postItem__heading">里山散策</h3>
+                  </div>
+                </section>
+              </div>
+              <div class="postList__item">
+                <section class="postItem">
+                  <figure class="postItem__image">
+                    <img src="./assets/sampleImg02.jpg">
+                  </figure>
+                  <div class="postItem__content">
+                    <h3 class="postItem__heading">薪割り体験</h3>
+                  </div>
+                </section>
+              </div>
+              <div class="postList__item">
+                <section class="postItem">
+                  <figure class="postItem__image">
+                    <img src="./assets/sampleImg03.jpg">
+                  </figure>
+                  <div class="postItem__content">
+                    <h3 class="postItem__heading">豆腐作り体験</h3>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="plan" class="section">
+        <div class="section__inner">
+          <h2 class="section__heading">宿泊プラン</h2>
+          <div class="section__container">
+            <h3>宿泊料金</h3>
+            <table class="section__table">
+              <thead>
+                <tr>
+                  <th>プラン名</th>
+                  <th>時期</th>
+                  <th>内容</th>
+                  <th>ご料金</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>プランA1</td>
+                  <td>月曜日～木曜日</td>
+                  <td>1泊2食 (朝・夕)</td>
+                  <td>6,600円 / 人</td>
+                </tr>
+                <tr>
+                  <td>プランA2</td>
+                  <td>金曜日～日曜日</td>
+                  <td>1泊2食 (朝・夕)</td>
+                  <td>7,200円 / 人</td>
+                </tr>
+                <tr>
+                  <td>プランA3</td>
+                  <td>繁忙期 (4～6月)</td>
+                  <td>1泊2食 (朝・夕)</td>
+                  <td>8,400円 / 人</td>
+                </tr>
+                <tr>
+                  <td>プランB1</td>
+                  <td>月曜日～木曜日</td>
+                  <td>1泊3食 (朝・昼・夕)</td>
+                  <td>7,800円 / 人</td>
+                </tr>
+                <tr>
+                  <td>プランB2</td>
+                  <td>金曜日～日曜日</td>
+                  <td>1泊3食 (朝・昼・夕)</td>
+                  <td>8,400円 / 人</td>
+                </tr>
+                <tr>
+                  <td>プランB3</td>
+                  <td>繁忙期 (4～6月)</td>
+                  <td>1泊3食 (朝・昼・夕)</td>
+                  <td>9,600円 / 人</td>
+                </tr>
+              </tbody>
+            </table>
+            <ul>
+              <li>ご予約は10日前までに、下記お問い合わせフォームから、お申込み下さい。</li>
+              <li>1日1組までのご宿泊となります。</li>
+            </ul>
+            <h3>体験料金</h3>
+            <table class="section__table">
+              <thead>
+                <tr>
+                  <th>体験内容</th>
+                  <th>ご料金</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>海岸散策、里山散策</td>
+                  <td>無料</td>
+                </tr>
+                <tr>
+                  <td>季節野菜の収穫体験、薪割り体験</td>
+                  <td>1,000円 / 人</td>
+                </tr>
+                <tr>
+                  <td>漁船クルーズ体験、豆腐作り体験</td>
+                  <td>2,000円 / 人</td>
+                </tr>
+              </tbody>
+            </table>
+            <ul>
+              <li>各体験の所要時間は約1時間です。</li>
+              <li>季節や天候の都合で、ご予約いただいても、当日体験ができないこともございます。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section id="food" class="section">
+        <div class="section__inner">
+          <h2 class="section__heading">お料理</h2>
+          <div class="section__container">
+            <p class="section__textBox">自家産の新鮮野菜を使った田舎料理や地場産食材の郷土料理をお楽しみください。
+              <br>田舎料理: 地元産の山菜・野菜・魚介類を素材とし、季節ごとの特色を感じさせる素朴な料理です。
+              <br>郷土料理: 私たち夫婦が生まれ育った鮎川町に、昔から継承されている地元特有の料理です。</p>
+            <div class="postList postList--grid">
+              <div class="postList__item">
+                <section class="postItem">
+                  <figure class="postItem__image">
+                    <img src="./assets/sampleImg05.jpg">
+                  </figure>
+                  <div class="postItem__content">
+                    <h3 class="postItem__heading">サザエのつぼ焼き</h3>
+                  </div>
+                </section>
+              </div>
+              <div class="postList__item">
+                <section class="postItem">
+                  <figure class="postItem__image">
+                    <img src="./assets/sampleImg06.jpg">
+                  </figure>
+                  <div class="postItem__content">
+                    <h3 class="postItem__heading">秋野菜の煮浸し</h3>
+                  </div>
+                </section>
+              </div>
+              <div class="postList__item">
+                <section class="postItem">
+                  <figure class="postItem__image">
+                    <img src="./assets/sampleImg00.jpg">
+                  </figure>
+                  <div class="postItem__content">
+                    <h3 class="postItem__heading">秋野菜の漬物</h3>
+                  </div>
+                </section>
+              </div>
+              <div class="postList__item">
+                <section class="postItem">
+                  <figure class="postItem__image">
+                    <img src="./assets/sampleImg01.jpg">
+                  </figure>
+                  <div class="postItem__content">
+                    <h3 class="postItem__heading">フキノトウの天ぷら</h3>
+                  </div>
+                </section>
+              </div>
+              <div class="postList__item">
+                <section class="postItem">
+                  <figure class="postItem__image">
+                    <img src="./assets/sampleImg02.jpg">
+                  </figure>
+                  <div class="postItem__content">
+                    <h3 class="postItem__heading">ジンジャーえのき釜飯</h3>
+                  </div>
+                </section>
+              </div>
+              <div class="postList__item">
+                <section class="postItem">
+                  <figure class="postItem__image">
+                    <img src="./assets/sampleImg03.jpg">
+                  </figure>
+                  <div class="postItem__content">
+                    <h3 class="postItem__heading">岩海苔の大根おろし和え</h3>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="access" class="section section--access">
+        <div class="section__inner section--access__inner">
+          <h2 class="section__heading section--access__heading">アクセス</h2>
+          <div class="embed --mt_4">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12895.600574897562!2d136.02627672081263!3d36.09592213771344!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff8c7f83be0146d%3A0x810ee8f088a34d4!2z5rW36L6644Gu6L6y5ZyS5a6_IOOBpOOBi-OBleS4uA!5e0!3m2!1sja!2sjp!4v1741050541503!5m2!1sja!2sjp"></iframe>
+            <div class="embed__cover">
+              <p class="embed__info">クリックするとマップを拡大/縮小できるようになります。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="section section--contact">
+        <div class="section__inner">
+          <h2 class="section__heading">お問い合わせ</h2>
+          <div class="section__container section--contact__container">
+            <form class="form" method="post" action="./php/mail.php">
+              <table class="form__table">
+                <tr>
+                  <td><label for="yourname">ご氏名<span class="required">*必須</span></label></td>
+                  <td><input id="yourname" size="30" type="text" name="ご氏名"></td>
+                </tr>
+                <tr>
+                  <td><label for="youremail">メールアドレス<span class="required">*必須</span></label></td>
+                  <td><input id="youremail" size="30" type="email" name="Email"></td>
+                </tr>
+                <tr>
+                  <td><label for="yoursubject">ご用件</label></td>
+                  <td>
+                    <select id="yoursubject" name="ご用件">
+                      <option value="ご予約">ご予約</option>
+                      <option value="ご質問・お問い合わせ">ご質問・お問い合わせ</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="yourcontent">お問い合わせ内容</label></td>
+                  <td><textarea id="yourcontent" name="お問い合わせ内容" cols="30" rows="6"></textarea></td>
+                </tr>
+              </table>
+              <div class="form__buttons">
+                <input type="submit" value="確認">
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="cover fader preloader" data-spinner-off="true">
+      <div class="cover__inner">
+        <div class="cover__image cover__image--num_1"></div>
+        <div class="cover__image cover__image--num_2"></div>
+        <div class="cover__image cover__image--num_3"></div>
+        <div class="cover__image cover__image--num_4"></div>
+      </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.0/vue.global.js"></script>
-    <script>
-      const data = {
-        data() {
-          return {
-            title: 'Site Title',
-            message: 'Welcome to our website.',
-            sections: {
-              feature: {
-                id: 'feature',
-                name: 'feature',
-                items: [
-                  {
-                    heading: 'feature-1',
-                    src: './assets/sampleImg00.jpg'
-                  },
-                  {
-                    heading: 'feature-2',
-                    src: './assets/sampleImg01.jpg'
-                  },
-                  {
-                    heading: 'feature-3',
-                    src: './assets/sampleImg02.jpg'
-                  },
-                  {
-                    heading: 'feature-4',
-                    src: './assets/sampleImg03.jpg'
-                  }
-                ]
-              },
-              about: {
-                id: 'about',
-                name: 'about',
-                heading: 'Mission',
-                excerpt: 'Our mission is ...',
-                src: './assets/sampleImg01.jpg',
-                more: 'read more'
-              },
-              service: {
-                id: 'service',
-                name: 'service',
-                more: 'read more',
-                items: [
-                  {
-                    date: '2023-01-01',
-                    heading: 'service-1',
-                    tags: ['news', 'info'],
-                    excerpt: 'Today is ...',
-                    src: './assets/sampleImg02.jpg'
-                  },
-                  {
-                    date: '2023-01-02',
-                    heading: 'service-2',
-                    tags: ['news'],
-                    excerpt: 'Today is ...',
-                    src: './assets/sampleImg03.jpg'
-                  },
-                  {
-                    date: '2023-01-03',
-                    heading: 'service-3',
-                    tags: ['info'],
-                    excerpt: 'Today is ...',
-                    src: './assets/sampleImg04.jpg'
-                  }
-                ]
-              },
-              news: {
-                id: 'news',
-                name: 'news',
-                more: 'read more',
-                items: [
-                {
-                    date: '2023-01-01',
-                    heading: 'news-1',
-                    tags: ['news', 'info'],
-                    excerpt: 'Today is ...',
-                    src: './assets/sampleImg03.jpg'
-                  },
-                  {
-                    date: '2023-01-02',
-                    heading: 'news-2',
-                    tags: ['news'],
-                    excerpt: 'Today is ...',
-                    src: './assets/sampleImg04.jpg'
-                  },
-                  {
-                    date: '2023-01-03',
-                    heading: 'news-3',
-                    tags: ['info'],
-                    excerpt: 'Today is ...',
-                    src: './assets/sampleImg05.jpg'
-                  }
-                ]
-              },
-              team: {
-                id: 'team',
-                name: 'team',
-                heading: 'Mission',
-                excerpt: 'Our mission is ...',
-                src: './assets/sampleImg04.jpg',
-                more: 'read more'
-              },
-              access: {
-                id: 'access',
-                name: 'access',
-                src: 'https://www.google.com/maps/embed'
-              },
-              contact: {
-                id: 'contact',
-                name: 'contact'
-              }
-            },
-            social: {
-              twitter: true,
-              facebook: true,
-              instagram: true
-            },
-            copyright: '&copy; 2019 - 2025 QWEL DESIGN'
-          };
-        }
-      }
-
-      Vue.createApp(data).mount('#app');
-    </script>
+    <footer id="footer" class="footer">
+      <small>&copy; 2020 - 2025 海辺の農園宿 つかさ丸</small>
+    </footer>
     <script src="./js/backToTop.js"></script>
     <script src="./js/drawerMenu.js"></script>
     <script src="./js/embed.js"></script>

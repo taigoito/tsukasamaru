@@ -28,6 +28,16 @@
     }
   }
 
+  &__textBox {
+    width: min(100%, 48rem);
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+  }
+
+  &__table {
+    @include table();
+  }
+
   &--feature {
     &__inner {
       padding-bottom: space(4);
