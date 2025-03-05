@@ -19,3 +19,4 @@ $fontWeightSansSerif:  400;
 $drawerNaviconDarkColor: map-get($themeColors, "darkest");
 
 $sliderAspectRatio:    4 / 3;
+$sliderHeight:         calc(min(100vh, 48rem) - 9rem); // 9rem = $headerHeight * 2

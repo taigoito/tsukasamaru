@@ -752,19 +752,6 @@ button, input, select, textarea {
 }
 
 /**
- * Component - Responsive Color
- */
-.responsiveColor--change {
-  color: #ffffff !important;
-}
-.responsiveColor--change span, .responsiveColor--change a {
-  color: #ffffff !important;
-}
-.responsiveColor--change img {
-  filter: invert(1) grayscale(1) brightness(4);
-}
-
-/**
  * Component - Slider
  */
 .slider {
@@ -775,7 +762,7 @@ button, input, select, textarea {
 }
 @media (min-width: 900px) {
   .slider {
-    height: 24rem;
+    height: calc(min(100vh, 48rem) - 9rem);
   }
 }
 .slider__inner {
@@ -807,7 +794,7 @@ button, input, select, textarea {
 @media (min-width: 900px) {
   .slider__item img {
     width: auto;
-    height: 24rem;
+    height: calc(min(100vh, 48rem) - 9rem);
   }
 }
 .slider__caption {
@@ -850,7 +837,7 @@ button, input, select, textarea {
   list-style: none;
   display: flex;
   justify-content: center;
-  height: 2rem;
+  height: 3rem;
   margin: 0.75rem auto;
   padding: 0;
 }
@@ -870,20 +857,7 @@ button, input, select, textarea {
  * Project - Hero
  */
 .hero {
-  position: relative;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: calc(100vh - 4.5rem);
-  background-color: rgba(0, 0, 0, 0.3);
-  color: #ffffff;
-  text-align: center;
-}
-.hero__content {
-  position: relative;
-  z-index: 1;
+  padding-top: 4.5rem;
 }
 
 /**
@@ -894,11 +868,11 @@ button, input, select, textarea {
   padding-bottom: 3rem;
   background-color: #ffffff;
 }
-.section:nth-child(odd) .section__inner {
+.section:nth-child(even) .section__inner {
   background-color: #4d4d4d;
   color: #ffffff;
 }
-.section:nth-child(odd) .section__inner a, .section:nth-child(odd) .section__inner a:active, .section:nth-child(odd) .section__inner a:hover, .section:nth-child(odd) .section__inner a:focus {
+.section:nth-child(even) .section__inner a, .section:nth-child(even) .section__inner a:active, .section:nth-child(even) .section__inner a:hover, .section:nth-child(even) .section__inner a:focus {
   color: #ffffff;
 }
 .section__heading {
