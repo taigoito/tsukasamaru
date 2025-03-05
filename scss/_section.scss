@@ -9,7 +9,7 @@
     background-color: $bodyBg;
 
     // Test Responsive Color
-    .section:nth-child(odd) & {
+    .section:nth-child(even) & {
       @include background("darker");
     }
   }
