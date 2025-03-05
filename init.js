@@ -29,8 +29,8 @@ import Embed  from './js/_embed.js';
 new Embed();
 
 // Fader
-import Fader from './js/_fader.js';
-new Fader();
+//import Fader from './js/_fader.js';
+//new Fader();
 
 // Evil Icons
 import EvilIcons from './js/_evilIcons.js';

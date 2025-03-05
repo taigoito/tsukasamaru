@@ -101,7 +101,7 @@ $sliderNavActiveColor:     themeColor("primary") !default;
     list-style: none;
     display: flex;
     justify-content: center;
-    height: 1.5rem;
+    height: 3rem; // $headerHeight - margin
     margin: space() auto;
     padding: 0;
   }

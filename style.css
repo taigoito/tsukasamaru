@@ -381,77 +381,6 @@ button, input, select, textarea {
 }
 
 /**
- * Component - Cover
- */
-.cover {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-}
-.cover__image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("./assets/sampleImg00.jpg");
-  background-position: center center;
-  background-size: cover;
-  transition: 1s linear opacity;
-}
-.cover__image--num_1 {
-  background-image: url("./assets/main_00.jpg");
-}
-.cover__image--num_2 {
-  background-image: url("./assets/main_01.jpg");
-}
-.cover__image--num_3 {
-  background-image: url("./assets/main_02.jpg");
-}
-.cover__image--num_4 {
-  background-image: url("./assets/main_03.jpg");
-}
-.cover__image--num_5 {
-  background-image: url("./assets/main_04.jpg");
-}
-.cover__image--fade {
-  opacity: 0;
-  transition: none;
-}
-.cover.preloader {
-  opacity: 0;
-}
-.--loaded .cover.preloader {
-  opacity: 1;
-}
-.cover__nav {
-  list-style: none;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  height: 1rem;
-  margin: 0.75rem auto;
-  padding: 0;
-}
-.cover__navItem {
-  width: 0.5rem;
-  height: 0.5rem;
-  margin: 0.75rem;
-  border-radius: 50%;
-  background-color: #cc4c33;
-  cursor: pointer;
-}
-.cover__navItem:not(.cover__navItem--current) {
-  background-color: #d9d9d9;
-}
-
-/**
  * Component - Drawer Menu
  */
 .drawer {
@@ -687,7 +616,7 @@ button, input, select, textarea {
 }
 @media (min-width: 900px) {
   .slider {
-    height: 24rem;
+    height: calc(min(100vh, 48rem) - 9rem);
   }
 }
 .slider__inner {
@@ -719,7 +648,7 @@ button, input, select, textarea {
 @media (min-width: 900px) {
   .slider__item img {
     width: auto;
-    height: 24rem;
+    height: calc(min(100vh, 48rem) - 9rem);
   }
 }
 .slider__caption {
@@ -762,7 +691,7 @@ button, input, select, textarea {
   list-style: none;
   display: flex;
   justify-content: center;
-  height: 1.5rem;
+  height: 3rem;
   margin: 0.75rem auto;
   padding: 0;
 }
@@ -782,20 +711,7 @@ button, input, select, textarea {
  * Project - Hero
  */
 .hero {
-  position: relative;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: calc(100vh - 4.5rem);
-  background-color: rgba(0, 0, 0, 0.3);
-  color: #ffffff;
-  text-align: center;
-}
-.hero__content {
-  position: relative;
-  z-index: 1;
+  padding-top: 4.5rem;
 }
 
 /**
@@ -806,11 +722,11 @@ button, input, select, textarea {
   padding-bottom: 3rem;
   background-color: #ffffff;
 }
-.section:nth-child(odd) .section__inner {
+.section:nth-child(even) .section__inner {
   background-color: #4d4d4d;
   color: #ffffff;
 }
-.section:nth-child(odd) .section__inner a, .section:nth-child(odd) .section__inner a:active, .section:nth-child(odd) .section__inner a:hover, .section:nth-child(odd) .section__inner a:focus {
+.section:nth-child(even) .section__inner a, .section:nth-child(even) .section__inner a:active, .section:nth-child(even) .section__inner a:hover, .section:nth-child(even) .section__inner a:focus {
   color: #ffffff;
 }
 .section__heading {
