@@ -9,6 +9,7 @@ class Fader {
   constructor(elem) {
     // Faderの各要素
     this._elem = elem || document.querySelector('.fader');
+    if (!this._elem) return;
     this._inner = this._elem.querySelector('.cover__inner');
     if (!this._inner) return;
     this._items = this._inner.children;
