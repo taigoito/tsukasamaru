@@ -1025,17 +1025,12 @@ button, input, select, textarea {
   margin-bottom: 1.5rem;
 }
 @media (max-width: 599.9px) {
-  .form__table {
+  .form__table, .form__table thead, .form__table tbody, .form__table tr, .form__table th, .form__table td {
     display: block;
   }
 }
 .form__table thead, .form__table tbody {
   width: 100%;
-}
-@media (max-width: 599.9px) {
-  .form__table thead, .form__table tbody {
-    display: block;
-  }
 }
 .form__table thead {
   border: 0;
@@ -1046,19 +1041,9 @@ button, input, select, textarea {
 .form__table tr:first-child {
   border-top: 1px solid #d9d9d9;
 }
-@media (max-width: 599.9px) {
-  .form__table tr {
-    display: block;
-  }
-}
 .form__table th, .form__table td {
   padding: 0.75rem;
   border: 0;
-}
-@media (max-width: 599.9px) {
-  .form__table th, .form__table td {
-    display: block;
-  }
 }
 .form__table th {
   width: 12rem;
