@@ -73,6 +73,7 @@ $containerPad:   (
 
 // コンテナ生成
 @mixin makeContainer($key: "lg") {
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: map-get($containerPad, $key);
