@@ -14,25 +14,33 @@
 })();
 
 // Back To Top
+import BackToTop from './js/_backToTop.js';
 new BackToTop();
 
 // Drawer Menu
+import DrawerMenu from './js/_drawerMenu.js';
 new DrawerMenu();
 
 // Embed
+import Embed  from './js/_embed.js';
 new Embed();
 
 // Fader
+import Fader from './js/_fader.js';
 new Fader();
 
 // Evil Icons
+import EvilIcons from './js/_evilIcons.js';
 new EvilIcons();
 
 // Preloader
-new Preloader();
+//import Preloader from './js/_preloader.js';
+//new Preloader();
 
 // Responsive Color
-new ResponsiveColor();
+//import ResponsiveColor from './js/_responsiveColor.js';
+//new ResponsiveColor();
 
 // Slider
+import Slider from './js/_slider.js';
 new Slider();
