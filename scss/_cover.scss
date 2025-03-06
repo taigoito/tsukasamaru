@@ -2,7 +2,7 @@
  * Component - Cover
  */
 
-$coverImageCount:      4 !default;
+$coverImageCount:      5 !default;
 $coverNavColor:        themeColor("lighter") !default;
 $coverNavActiveColor:  themeColor("primary") !default;
 
@@ -31,7 +31,7 @@ $coverNavActiveColor:  themeColor("primary") !default;
     // 画像の数とパスを設定
     @for $i from 1 through $coverImageCount {
       &--num_#{$i} {
-        background-image: url("./assets/sampleImg0#{$i}.jpg");
+        background-image: url("./assets/main_0#{$i - 1}.jpg");
       }
     }
     
