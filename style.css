@@ -262,16 +262,19 @@ button, input, select, textarea {
   transition: 1s linear opacity;
 }
 .cover__image--num_1 {
-  background-image: url("./assets/sampleImg01.jpg");
+  background-image: url("./assets/main_00.jpg");
 }
 .cover__image--num_2 {
-  background-image: url("./assets/sampleImg02.jpg");
+  background-image: url("./assets/main_01.jpg");
 }
 .cover__image--num_3 {
-  background-image: url("./assets/sampleImg03.jpg");
+  background-image: url("./assets/main_02.jpg");
 }
 .cover__image--num_4 {
-  background-image: url("./assets/sampleImg04.jpg");
+  background-image: url("./assets/main_03.jpg");
+}
+.cover__image--num_5 {
+  background-image: url("./assets/main_04.jpg");
 }
 .cover__image--fade {
   opacity: 0;
@@ -648,7 +651,7 @@ button, input, select, textarea {
 .slider {
   position: relative;
   width: 100%;
-  height: calc(83.33vmin / 1.6);
+  height: calc(83.33vmin / 1.3333333333);
   overflow: hidden;
 }
 @media (min-width: 900px) {
@@ -677,7 +680,7 @@ button, input, select, textarea {
 }
 .slider__item img {
   width: 83.33vmin;
-  aspect-ratio: 1.6;
+  aspect-ratio: 1.3333333333;
   -o-object-fit: cover;
      object-fit: cover;
   margin: 0;
