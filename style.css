@@ -280,11 +280,16 @@ button, input, select, textarea {
   background: rgba(128, 255, 255, 0.3);
 }
 .calendar__mode {
+  margin-bottom: 1rem;
   text-align: right;
 }
-.calendar__mode select {
-  display: inline-block;
-  margin: 0 0.75rem;
+.calendar__mode label {
+  font-size: 0.875rem;
+}
+.calendar__mode input {
+  width: 6rem;
+  height: 1.5rem;
+  margin-left: 0.5rem;
 }
 .calendar__control {
   display: flex;

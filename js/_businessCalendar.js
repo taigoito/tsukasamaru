@@ -38,7 +38,12 @@ export default class BusinessCalendar extends Calendar {
     const mode = document.querySelector('.calendar__mode');
     if (!mode) return;
     mode.addEventListener('change', () => {
-      this._elem.classList.toggle('--editMode');
+      if (mode.querySelector('input').value === 'momiwakame') {
+        this._elem.classList.add('--editMode');
+      } else {
+        this._elem.classList.remove('--editMode');
+      }
+      
     });
 
     // セルのデータ操作受付
