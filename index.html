@@ -398,6 +398,24 @@
             <p>当宿では本業として若布漁を行なっていますので、毎年4月下旬から5月末までの期間、宿泊のお客様を受け入れできないことが多いので、ご了承ください。日程の詳細はお問合せください。</p>
             <p>また、若布製品（乾燥もみ若布の瓶詰）の販売については、期間限定で「インスタグラム」や「フェイススブック」にて情報提供していますので、ご購入の検討をお願いします。詳細はお問合せください。</p>
           </div>
+          <div id="calendar" class="calendar">
+            <div class="calendar__control">
+              <a class="calendar__prev" href="#">&lt; <span class="calendar__prevText"></span></a>
+              <span class="calendar__currentText"></span>
+              <a class="calendar__next" href="#"><span class="calendar__nextText"></span> &gt;</a>
+            </div>
+            <div class="calendar__wrap">
+              <table class="calendar__view">
+                <thead class="calendar__head"></thead>
+                <tbody class="calendar__body"></tbody>
+              </table>
+            </div>
+            <ul class="calendar__status">
+              <li class="calendar__state calendar__state--0">予約不可</li>
+              <li class="calendar__state calendar__state--2">予約可能</li>
+              <li class="calendar__state calendar__state--1">繁忙期(お問い合わせ下さい)</li>
+            </ul>
+          </div>
           <div class="section__container section__container--md section--contact__container">
             <form class="form" method="post" action="./php/mail.php">
               <table class="form__table">

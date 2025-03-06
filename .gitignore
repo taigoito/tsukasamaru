@@ -4,3 +4,6 @@
 # Node_modules
 node_modules/
 package-lock.json
+
+# Database
+status.sqlite

@@ -17,6 +17,9 @@
 import BackToTop from './js/_backToTop.js';
 new BackToTop();
 
+import BusinessCalendar from './js/_businessCalendar.js';
+new BusinessCalendar({ delay: 9 });
+
 // Drawer Menu
 import DrawerMenu from './js/_drawerMenu.js';
 new DrawerMenu();
