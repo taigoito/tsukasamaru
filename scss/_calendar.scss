@@ -14,11 +14,17 @@ $calendarUnit: clamp(46px, 6vw, 69px);
   }
 
   &__mode {
+    margin-bottom: 1rem;
     text-align: right;
 
-    select {
-      display: inline-block;
-      margin: 0 .75rem;
+    label {
+      font-size: 0.875rem;
+    }
+
+    input {
+      width: 6rem;
+      height: 1.5rem;
+      margin-left: 0.5rem;
     }
   }
 
