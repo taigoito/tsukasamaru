@@ -754,9 +754,9 @@ button, input, select, textarea {
   padding-right: clamp(0.75rem, 2%, 1rem);
 }
 .section__textBox {
-  width: min(100%, 56rem);
+  width: min(100%, 45rem);
   margin: 3rem auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 }
 .section__table {
   width: 100%;
