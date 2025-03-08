@@ -20,31 +20,29 @@
   }
 
   &__container {
-    padding-top: space(2) + space(3);
-    padding-bottom: space(4);
+    padding-top: space(2);
+    padding-bottom: space(2);
 
-    &:not(.section--contact__container) {
+    &:not(.section__container--md) {
       @include container();
+    }
+
+    &--md {
+      @include container("md");
     }
   }
 
   &__textBox {
-    width: min(100%, 48rem);
+    width: min(100%, 56rem);
     margin: 3rem auto;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
 
   &__table {
-    @include table();
-  }
+    @include fluidTable(54rem);
 
-  &--feature {
-    &__inner {
-      padding-bottom: space(4);
-    }
-
-    &__heading {
-      margin-bottom: space(4);
+    tbody tr:hover {
+      background-color: rgba(255, 255, 255, 0.15);
     }
   }
 
@@ -65,10 +63,6 @@
 
     &__heading {
       margin-bottom: space(4);
-    }
-
-    &__container {
-      @include container("md");
     }
   }
 }

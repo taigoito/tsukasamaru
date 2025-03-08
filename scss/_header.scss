@@ -5,6 +5,11 @@
 $headerHeight: 4.5rem;
 
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 990;
+  width: 100%;
   height: $headerHeight;
 
   &__inner {
