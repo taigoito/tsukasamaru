@@ -39,6 +39,11 @@
       &__content {
         @include col(5, true);
         margin-bottom: space(2);
+
+        @media (min-width: breakpoint("md")) {
+          padding-left: 3rem;
+          padding-right: 3rem;
+        }
       }
     }
   }
