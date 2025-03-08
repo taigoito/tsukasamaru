@@ -22,7 +22,7 @@ new BusinessCalendar({ delay: 9 });
 
 // Drawer Menu
 import DrawerMenu from './js/_drawerMenu.js';
-new DrawerMenu();
+new DrawerMenu({ darkMode: true});
 
 // Embed
 import Embed  from './js/_embed.js';

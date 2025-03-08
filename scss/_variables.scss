@@ -16,4 +16,6 @@ $themeColors:    (
 $fontFamilySansSerif:  "Zen Maru Gothic", serif;
 $fontWeightSansSerif:  400;
 
+$drawerNaviconDarkColor: map-get($themeColors, "darkest");
+
 $sliderAspectRatio:    4 / 3;
