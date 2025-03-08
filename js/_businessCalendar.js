@@ -60,7 +60,7 @@ export default class BusinessCalendar extends Calendar {
       const startDate = today.setDate(today.getDate() + this.options.delay);
 
       // 週のデフォルト値 (予約開始日以前は)
-      let state = (new Date(date) < startDate) ? 0 : 2;
+      let state = (new Date(date) < startDate) ? 0 : 1;
 
       // データがあれば、状態値を上書き
       if (new Date(date) > startDate) {
