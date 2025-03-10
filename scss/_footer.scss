@@ -3,7 +3,21 @@
  */
 
 .footer {
-  padding: space(5);
+  padding: space(5) 0;
   @include background("darkest");
-  text-align: center;
+
+  &__container {
+    width: 16.5rem;
+    margin: 0 auto;
+
+    small {
+      display: block;
+    }
+
+  }
+
+  &__socialMenu {
+    list-style: none;
+    @include row(flex-start);
+  }
 }
