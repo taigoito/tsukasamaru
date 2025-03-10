@@ -28,7 +28,10 @@ export default class BusinessCalendar extends Calendar {
     // データを取得して、状態値を反映
     const res = await fetch(`${url}php/api.php?method=fetch&year=${year}&month=${month + 1}`);
     const data = await res.json();
-    this._setStatus(data);
+    setTimeout(() => {
+      this._setStatus(data);
+    }, 1000); // 初回読み込み時エラー回避
+    
   }
 
   _handleEvents() {
@@ -52,6 +55,7 @@ export default class BusinessCalendar extends Calendar {
 
   _setStatus(data) {
     const elems = this._body.querySelectorAll('[data-date]');
+    console.log(elems);
     elems.forEach((td) => {
       const date = td.dataset.date;
 
