@@ -213,7 +213,7 @@ else if($confirmDsp == 1){
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="format-detection" content="telephone=no">
 		<title>送信内容の確認</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style-1.0.css">
     <link rel="icon" href="../favicon.ico">
 	</head>
 	<body>
@@ -262,7 +262,7 @@ if(($jumpPage == 0 && $sendmail == 1) || ($jumpPage == 0 && ($confirmDsp == 0 &&
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="format-detection" content="telephone=no">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style-1.0.css">
     <link rel="icon" href="../favicon.ico">
 		<title>送信完了</title>
 	</head>
