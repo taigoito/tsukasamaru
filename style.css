@@ -264,7 +264,7 @@ button, input, select, textarea {
   color: #ffffff;
 }
 .backToTop:hover .icon {
-  background-color: #e09485;
+  background-color: #ffaa99;
   color: #262626;
 }
 
@@ -1065,14 +1065,14 @@ button, input, select, textarea {
   color: #ffffff;
 }
 .form__buttons [type=button] {
-  background-color: #33bbff;
-  color: #262626;
+  background-color: #3366cc;
+  color: #ffffff;
 }
 .form__buttons [type=button] a, .form__buttons [type=button] a:active, .form__buttons [type=button] a:hover, .form__buttons [type=button] a:focus {
-  color: #262626;
+  color: #ffffff;
 }
 .form__buttons [type=reset] {
-  background-color: #4d33cc;
+  background-color: #2aad1f;
   color: #ffffff;
 }
 .form__buttons [type=reset] a, .form__buttons [type=reset] a:active, .form__buttons [type=reset] a:hover, .form__buttons [type=reset] a:focus {
