@@ -64,11 +64,11 @@ $spacingValues:  (
 
 // ガター
 // 行を生成することで、コンテナの端とコンテンツ間が、それぞれ1.5rem空く仕様
-$gutter:         space() !default;
+$gutter:         $gridBase / 8 !default;
 $containerPad:   (
   sm:              $gutter,
-  md:              clamp(#{$gutter}, 2%, 18px),
-  lg:              clamp(#{$gutter}, 2%, 24px)
+  md:              clamp(#{$gutter}, 2%, #{$gridBase / 6}),
+  lg:              clamp(#{$gutter}, 2%, #{$gridBase / 4})
 ) !default;
 
 // コンテナ生成
@@ -80,6 +80,7 @@ $containerPad:   (
 }
 
 @mixin container($key: "lg", $maxWidth: map-get($containerWidths, $key)) {
+  width: 100%;
   max-width: $maxWidth;
   @include makeContainer($key);
 }
@@ -118,5 +119,6 @@ $containerPad:   (
       flex-basis: $size * $gridBase;
     }
   }
+  width: 100%;
   @include makeContainer("sm");
 }
