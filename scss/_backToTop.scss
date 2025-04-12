@@ -2,12 +2,16 @@
  * Component - Back To Top
  */
 
-$backBtnBg:          themeColor("primary") !default;
-$backBtnColor:       colorYiq(themeColor("primary")) !default;
-$backBtnHoverBg:     themeColor("primaryLight") !default;
-$backBtnHoverColor:  colorYiq(themeColor("primaryLight")) !default;
-$backBtnPad:         space() !default;
-$backBtnHeight:      3rem !default;
+$backBtnBg:              themeColor("lighter") !default;
+$backBtnColor:           colorYiq(themeColor("lighter")) !default;
+$backBtnHoverBg:         themeColor("primary") !default;
+$backBtnHoverColor:      colorYiq(themeColor("primary")) !default;
+$backBtnDarkBg:          themeColor("primary") !default;
+$backBtnDarkColor:       colorYiq(themeColor("primary")) !default;
+$backBtnDarkHoverBg:     themeColor("primaryLight") !default;
+$backBtnDarkHoverColor:  colorYiq(themeColor("primaryLight")) !default;
+$backBtnPad:             space() !default;
+$backBtnHeight:          3rem !default;
 
 .backToTop {
   position: fixed;
@@ -20,9 +24,20 @@ $backBtnHeight:      3rem !default;
   padding: 0; // Reset
   border: 0;
   background-color: transparent;
+  opacity: 0;
+  transform: translateY(1rem) rotateY(-180deg);
+  transition: all 0.5s ease;
   text-align: center;
   outline: 0;
-  cursor: pointer;
+  cursor: default;
+  pointer-events: none;
+
+  &--active {
+    opacity: 1;
+    transform: translateY(0) rotateY(0);
+    cursor: pointer;
+    pointer-events: auto;
+  }
 
   .icon {
     position: absolute;
@@ -33,10 +48,21 @@ $backBtnHeight:      3rem !default;
     border-radius: 50%;
     background-color: $backBtnBg;
     color: $backBtnColor;
+    transition: all 0.25s ease;
   }
 
   &:hover .icon {
     background-color: $backBtnHoverBg;
     color: $backBtnHoverColor;
+  }
+
+  &--dark .icon{
+    background-color: $backBtnDarkBg;
+    color: $backBtnDarkColor;
+  }
+
+  &--dark:hover .icon {
+    background-color: $backBtnDarkHoverBg;
+    color: $backBtnDarkHoverColor;
   }
 }

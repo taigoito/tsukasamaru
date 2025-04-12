@@ -4,8 +4,11 @@
  * Location: Fukui, Japan
  */
 
-class DrawerMenu {
-
+export default class DrawerMenu {
+  // options
+  // darkMode: ダークモード
+  // siteBrand, primaryMenu, socialMenu: クローンする対象
+  // responsiveColor: class="responsiveColor"の付与 (SCSSでドロワー背景を透過する場合)
   constructor(options = {}) {
     // 設定
     this.darkMode = options.darkMode || false;
@@ -21,12 +24,13 @@ class DrawerMenu {
     // 各要素生成
     // .drawer
     this._drawer = document.createElement('button');
-    this._drawer.classList.add('drawer');
+    this._drawer.classList.add('drawer', 'drawer--ready');
     if (this.darkMode) this._drawer.classList.add('drawer--dark');
 
     // .drawer__navicon
     this._navicon = document.createElement('span');
-    this._navicon.classList.add('drawer__navicon', 'responsiveColor');
+    this._navicon.classList.add('drawer__navicon');
+    if (options.responsiveColor) this._navicon.classList.add('responsiveColor');
     this._navicon.dataset.icon = 'ei-navicon';
     this._navicon.dataset.size = 'm';
     this._drawer.appendChild(this._navicon);
@@ -64,6 +68,11 @@ class DrawerMenu {
 
     // イベント登録
     this._handleEvents();
+
+    // 出現アニメーション
+    setTimeout(() => {
+      this._drawer.classList.remove('drawer--ready');
+    }, 1000);
 
   }
 
@@ -128,7 +137,7 @@ class DrawerMenu {
     // ブランドロゴ・タイトルをインポート
     const siteBrand = document.createElement('div');
     siteBrand.classList.add('drawerMenu__item', 'drawerMenu__item--siteBrand');
-    siteBrand.appendChild(this._siteBrand.cloneNode(true));
+    siteBrand.innerHTML = this._siteBrand.innerHTML;
     this._menu.appendChild(siteBrand);
 
   }

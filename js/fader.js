@@ -4,8 +4,9 @@
  * Location: Fukui, Japan
  */
 
-class Fader {
-
+export default class Fader {
+  // data属性によるパラメータ管理:
+  // data-interval: スライドアニメーション時間間隔
   constructor(elem) {
     // Faderの各要素
     this._elem = elem || document.querySelector('.fader');
@@ -34,25 +35,19 @@ class Fader {
 
     // 開始
     this.startInterval();
-
   }
-
 
   // 再生
   startInterval() {
     this.isPlay = true;
     this._timeStart = null;
     this._loop(performance.now());
-
   }
-
 
   // 停止
   stopInterval() {
     this.isPlay = false;
-
   }
-
 
   _setupNavs() {
     this.hasNav = true;
@@ -77,9 +72,7 @@ class Fader {
     this._elem.appendChild(this._nav);
 
     this._handleEvents();
-
   }
-
 
   _handleEvents() {
     // ナビゲーション操作
@@ -91,9 +84,7 @@ class Fader {
         this.stopInterval();
       }
     });
-
   }
-
 
   _loop(timeCurrent) {
     if (!this._timeStart) {
@@ -104,18 +95,14 @@ class Fader {
     timeElapsed < this.interval
       ? window.requestAnimationFrame(this._loop.bind(this))
       : this._done();
-
   }
-
 
   _done() {
     if (this.isPlay) {
       this.startInterval();
       this.fade((this.currentIndex + 1) % this.itemsCount);
     }
-
   }
-
 
   fade(index) {
     // prev(前面)とcurrent(背面)の要素をそれぞれ取得
@@ -151,9 +138,7 @@ class Fader {
       this._navItems = this._nav.children;
       this._navItems[this.currentIndex].classList.add('cover__navItem--current');
     }
-
   }
-
 
   _transitionEnd(elem, func) {
     let callback;
@@ -166,7 +151,5 @@ class Fader {
       elem.removeEventListener('transitionend', callback);
     });
     return promise;
-
   }
-
 }

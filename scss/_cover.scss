@@ -5,6 +5,7 @@
 $coverImageCount:      4 !default;
 $coverNavColor:        themeColor("lighter") !default;
 $coverNavActiveColor:  themeColor("primary") !default;
+$coverBlur:            blur(1px) !default;
 
 .cover {
   position: fixed;
@@ -14,39 +15,37 @@ $coverNavActiveColor:  themeColor("primary") !default;
   width: 100%;
   height: 100%;
 
+  &__inner {
+    // Preloader用クラス
+    .preloader & {
+      opacity: 0; // Preloader稼働前は透過
+
+      .loaded & {
+        opacity: 1; // イメージを読み込んだら透過を解除
+      }
+    }
+  }
+
   &__image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    //background: linear-gradient(rgba(0, 0, 0, 0),  rgba(0, 0, 0, 0.3),  rgba(0, 0, 0, 0)), url("./assets/sampleImg00.jpg") no-repeat center center / cover scroll;
-    //filter: $blur;
-    background-image: url("./assets/sampleImg00.jpg");
-    background-position: center center;
-    background-size: cover;
-    transition: 1s linear opacity;
+    filter: $coverBlur;
+    transition: opacity 1s ease;
 
     // Fader用クラス
     // 画像の数とパスを設定
     @for $i from 1 through $coverImageCount {
       &--num_#{$i} {
-        background-image: url("./assets/sampleImg0#{$i}.jpg");
+        background: linear-gradient(rgba(0, 0, 0, 0),  rgba(0, 0, 0, 0.3),  rgba(0, 0, 0, 0)), url("./assets/sampleImg0#{$i}.jpg") no-repeat center center / cover scroll;
       }
     }
     
     &--fade {
       opacity: 0;
       transition: none;
-    }
-  }
-
-  // Preloader用クラス
-  &.preloader {
-    opacity: 0; // Preloader稼働前は透過
-
-    .--loaded & {
-      opacity: 1; // イメージを読み込んだら透過を解除
     }
   }
 

@@ -40,7 +40,7 @@ $preloaderBg:      themeColor("primary") !default;
     height: $preloaderHeight;
     background: $preloaderBg;
     opacity: 1;
-    transition: opacity ease-in-out .5s;
+    transition: opacity 0.5s linear;
 
     &:not(.preloader__overlay--show) {
       opacity: 0;

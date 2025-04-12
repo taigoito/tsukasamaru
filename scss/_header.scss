@@ -5,11 +5,38 @@
 $headerHeight: 4.5rem;
 
 .header {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
   height: $headerHeight;
+  transition: all 0.35s ease;
 
-  &__inner {
-    height: 100%;
-    background-color: $bodyBg;
+  a {
+    color: $bodyBg;
+  }
+
+  @media (max-width: breakpoint("md") - 0.1) {
+    .gNav__siteBrand.responsiveColor a {
+      color: $linkColor;
+
+      &:hover {
+        color: $linkHoverColor;
+      }
+    }
+  }
+
+  @media (min-width: breakpoint("md")) {
+    &:hover, &--active {
+      background-color: $bodyBg;
+
+      a, .gNav__siteBrand.responsiveColor a {
+        color: $linkColor !important; // .responsiveColor
+
+        &:hover {
+          color: $linkHoverColor !important;
+        }
+      }
+    }
   }
 
   &__container {

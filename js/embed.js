@@ -4,26 +4,33 @@
  * Location: Fukui, Japan
  */
 
-class Embed {
+export default class Embed {
+  // 引数infoTextは、カバーに表示させる文字列を受け取る
+  // 主にGoogleMapの埋め込みに使用する想定
+  constructor(infoText) {
+    const elems = document.querySelectorAll('.embed');
+    if (!elems || !elems.length) return;
 
-  constructor() {
-    // 要素を取得
-    const embed = document.querySelector('.embed__cover');
-    if (!embed) return;
-
-    embed.classList.add('embed__cover--active');
-    // 監視
-    const myTouch = 'ontouchend' in document && window.innerWidth < 1024 ? 'touchend' : 'click';
-    embed.addEventListener(myTouch, () => {
-      const promise = this.transitionEnd(embed, () => {
-        embed.classList.remove('embed__cover--active');
-      }).then(() => {
-        embed.remove();
+    elems.forEach((elem) => {
+      // 要素を生成
+      const cover = document.createElement('div');
+      cover.classList.add('embed__cover', 'embed__cover--active');
+      elem.appendChild(cover);
+      const info = document.createElement('p');
+      info.textContent = infoText || 'クリックするとマップを拡大/縮小できるようになります。';
+      cover.appendChild(info);
+  
+      // 監視
+      const myTouch = 'ontouchend' in document && window.innerWidth < 1024 ? 'touchend' : 'click';
+      cover.addEventListener(myTouch, () => {
+        const promise = this.transitionEnd(cover, () => {
+          cover.classList.remove('embed__cover--active');
+        }).then(() => {
+          cover.remove();
+        });
       });
     });
-
   }
-
 
   transitionEnd(elem, func) {
     let callback;
@@ -36,7 +43,5 @@ class Embed {
       elem.removeEventListener('transitionend', callback);
     });
     return promise;
-
   }
-
 }

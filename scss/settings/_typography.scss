@@ -31,7 +31,7 @@ $headingMarginTop:     $defaultMargin * 2 !default;
 $headingMarginBottom:  $defaultMargin !default;
 $headingFontFamily:    $fontFamilySansSerif !default;
 $headingFontWeight:    $fontWeightSansSerif !default;
-$h1FontSize:           map-get($fontSizes, "xxl") !default;
+$h1FontSize:           map-get($fontSizes, "xl") !default;
 $h2FontSize:           map-get($fontSizes, "xl") !default;
 $h3FontSize:           map-get($fontSizes, "lg") !default;
 $h4FontSize:           map-get($fontSizes, "md") !default;

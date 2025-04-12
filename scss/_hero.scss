@@ -6,7 +6,7 @@
   position: relative;
   @include row(center, center);
   width: 100%;
-  height: calc(100vh - #{$headerHeight * 2});
+  height: 100vh;
   color: $bodyBg;
   text-align: center;
 

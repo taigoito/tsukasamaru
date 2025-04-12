@@ -9,17 +9,16 @@
   &__siteBrand {
     flex: 0 1 9rem;
     margin: 0;
+    text-align: center;
+    text-transform: uppercase;
   }
 
   &__primaryMenu {
     @include listUnstyled();
     @include row();
-    flex: 0 1 30rem;
+    flex: 0 1 36rem;
     margin: 0;
-
-    @media (max-width: breakpoint("md") - 0.1) {
-      display: none;
-    }
+    text-transform: capitalize;
   }
 
   &__socialMenu {
@@ -27,10 +26,6 @@
     @include row();
     flex: 0 1 9rem;
     margin: 0;
-
-    @media (max-width: breakpoint("md") - 0.1) {
-      display: none;
-    }
   }
 
   &__menuItem {

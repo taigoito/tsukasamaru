@@ -4,8 +4,16 @@
  * Location: Fukui, Japan
  */
 
-class Preloader {
+// body要素に限らず、任意の要素に定義可能 (Faderで駆動することを想定)
+export default class Preloader {
   // 引数:isLoadManually true: 自動読み込みしない false: window.onloadで自動読み込み
+  // data属性によるパラメータ管理:
+  // data-background-color: preloader背景色
+  // data-img-src: preloader画像 (指定無しの場合はスピナーを生成)
+  // data-terminateTime: 最大読み込み時間
+  // data-spinner-off: true指定で、スピナーを生成しない
+  // data-spinner-bars-count: スピナーバー本数 (SCSSも修正が必要)
+  // data-spinner-interval: スピナー回転間隔
   constructor(elem, isLoadManually) {
     // 要素を取得
     this._elem = elem || document.querySelector('.preloader');
@@ -48,9 +56,7 @@ class Preloader {
 
     // ページ読み込みが完了したらロード
     if (!isLoadManually) window.onload = () => this.load();
-
   }
-
 
   load() {
     clearTimeout(this._terminateTimmerId);
@@ -61,32 +67,27 @@ class Preloader {
       this._preloader.addEventListener('transitionend', callback);
     });
 
+    // エフェクト終了をbody要素に伝え、各要素をtransitionさせる
+    document.body.classList.add('loaded');
+    
     this._preloader.classList.remove('preloader__overlay--show');
     promise.then(() => {
       this._preloader.removeEventListener('transitionend', callback);
       this._terminate();
     });
-
   }
-
 
   _terminate() {
     if (this._spinner) {
       this._spinner.stop();
     }
     this._preloader.remove();
-
-    // エフェクト終了をbody要素に伝え、各要素をtransitionさせる
-    document.body.classList.add('--loaded');
-
   }
-
 }
 
 
 // CSSでスピナーを作成
 class Spinner {
-
   constructor(options = {}) {
     this.spinner = document.createElement('div');
     this.spinner.classList.add('preloader__spinner');
@@ -100,9 +101,7 @@ class Spinner {
 
     this.interval = options.interval || 1000;
     this.interval /= this.barsCount;
-
   }
-
 
   spin() {
     this.isSpin = true;
@@ -110,15 +109,11 @@ class Spinner {
     setTimeout(() => {
       this._loop(0);
     }, this.interval);
-
   }
-
 
   stop() {
     this.isSpin = false;
-
   }
-
 
   _loop(rotateCount = 0) {
     if (!this.isSpin) return;
@@ -135,7 +130,5 @@ class Spinner {
     setTimeout(() => {
       this._loop(rotateCount);
     }, this.interval);
-
   }
-
 }

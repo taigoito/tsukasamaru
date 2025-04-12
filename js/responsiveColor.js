@@ -4,8 +4,7 @@
  * Location: Fukui, Japan
  */
 
-class ResponsiveColor {
-
+export default class ResponsiveColor {
   constructor(elems) {
     // 要素を取得
     this._elems = elems || document.querySelectorAll('.responsiveColor');
@@ -25,9 +24,7 @@ class ResponsiveColor {
     // 初期状態をセットし、以後スクロールを監視
     this.change();
     window.addEventListener('scroll', () => this.change());
-
   }
-
 
   // セクションの背景を検出し .--change を付与
   change() {
@@ -42,9 +39,7 @@ class ResponsiveColor {
       } else {
         elem.classList.remove('responsiveColor--change');
       }
-
     });
-
   }
 
   // 要素の背景色を検出し、濃いか薄いか判定
@@ -60,7 +55,6 @@ class ResponsiveColor {
     const b = parseInt(colors[2], 16);
 
     return ((((r * 299) + (g * 587) + (b * 114)) / 1000) < 300) ? true : false;
-
   }
 
   // header, main, footerの子要素から、背景を取得するセクションの配列を作成
@@ -87,7 +81,6 @@ class ResponsiveColor {
     sections.push(footer);
 
     return sections;
-
   }
 
   // セクションの配列から、現在のセクションを取得
@@ -104,11 +97,7 @@ class ResponsiveColor {
         current = section;
         min = clientRectTop;
       }
-
     });
-
     return current;
-
   }
-
 }

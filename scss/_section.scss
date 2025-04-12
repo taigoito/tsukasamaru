@@ -17,47 +17,18 @@
   &__heading {
     margin: space(3) 0;
     text-align: center;
+    text-transform: capitalize;
   }
 
   &__container {
     padding-top: space(2) + space(3);
     padding-bottom: space(4);
 
-    &:not(.section--contact__container) {
+    &:not(.section__container--md) {
       @include container();
     }
-  }
 
-  &--feature {
-    &__inner {
-      padding-bottom: space(4);
-    }
-
-    &__heading {
-      margin-bottom: space(4);
-    }
-  }
-
-  &--access {
-    &__inner {
-      padding-bottom: 0;
-    }
-
-    &__heading {
-      margin-bottom: space(4);
-    }
-  }
-
-  &--contact {
-    &__inner {
-      padding-top: space(4);
-    }
-
-    &__heading {
-      margin-bottom: space(4);
-    }
-
-    &__container {
+    &--md {
       @include container("md");
     }
   }

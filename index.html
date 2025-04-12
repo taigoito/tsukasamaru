@@ -3,41 +3,41 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starter Template</title>
+    <title>SAMPLE DEMO | QWEL in Action</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./favicon.ico">
   </head>
   <body>
     <div id="app">
       <header id="header" class="header">
-        <div class="header__inner">
-          <div class="header__container">
-            <nav id="gNav" class="gNav">
-              <h1 class="gNav__siteBrand">
-                <a href="/" v-html="title"></a>
-              </h1>
-              <ul class="gNav__primaryMenu">
-                <li class="gNav__menuItem" v-for="section in sections"><a :href="`#${section.id}`">{{ section.name }}</a></li>
-              </ul>
-              <ul class="gNav__socialMenu">
-                <template v-for="(item, key) in social">
-                  <li class="gNav__menuItem gNav__menuItem--social" v-if="item"><a :href="`https://${key}.com/`"><span :data-icon="`ei-sc-${key}`" data-size="m"></span></a></li>
-                </template>
-              </ul>
-            </nav>
-          </div>
+        <div class="header__container">
+          <nav id="gNav" class="gNav">
+            <h1 class="gNav__siteBrand responsiveColor">
+              <a href="/demo/">Sample Demo</a>
+            </h1>
+            <ul class="gNav__primaryMenu --visible_md">
+              <li class="gNav__menuItem" v-for="section in sections"><a :href="`#${section.id}`">{{ section.name }}</a></li>
+            </ul>
+            <ul class="gNav__socialMenu --visible_md">
+              <template v-for="(item, key) in social">
+                <li class="gNav__menuItem gNav__menuItem--social" v-if="item"><a :href="`https://${key}.com/`"><span :data-icon="`ei-sc-${key}`" data-size="m"></span></a></li>
+              </template>
+            </ul>
+          </nav>
         </div>
       </header>
       <main id="main" class="main">
         <header id="hero" class="hero">
           <div class="hero__content">
-            <p v-html="message"></p>
+            <p>Welcome to our website.
+              <br>This page is a Sample Demo, 
+              <br>so some links and buttons may not work.</p>
           </div>
         </header>
-        <section :id="sections['feature'].id" class="section section--feature">
-          <div class="section__inner section--feature__inner">
-            <h2 class="section__heading section--feature__heading">{{ sections['feature'].name }}</h2>
-            <div class="slider">
+        <section :id="sections['feature'].id" class="section">
+          <div class="section__inner">
+            <h2 class="section__heading --pb_4">{{ sections['feature'].name }}</h2>
+            <div class="slider" data-gap="72">
               <figure class="slider__inner">
                 <figure class="slider__item" v-for="item in sections['feature'].items">
                   <img class="slider__image" :src="item.src">
@@ -143,22 +143,20 @@
             </div>
           </div>
         </section>
-        <section :id="sections['access'].id" class="section section--access">
-          <div class="section__inner section--access__inner">
-            <h2 class="section__heading section--access__heading">{{ sections['access'].name }}</h2>
-            <div class="embed --mt_4">
+        <section :id="sections['access'].id" class="section">
+          <div class="section__inner --pb_0">
+            <h2 class="section__heading --pb_4">{{ sections['access'].name }}</h2>
+            <div class="embed">
               <iframe :src="sections['access'].src"></iframe>
-              <div class="embed__cover">
-                <p class="embed__info">クリックするとマップを拡大/縮小できるようになります。</p>
-              </div>
             </div>
           </div>
         </section>
-        <section :id="sections['contact'].id" class="section section--contact">
+        <section :id="sections['contact'].id" class="section">
           <div class="section__inner">
             <h2 class="section__heading">{{ sections['contact'].name }}</h2>
-            <div class="section__container section--contact__container">
-              <form class="form" method="post" action="./php/mail.php">
+            <div class="section__container section__container--md">
+              <p class="--text_center">{{ sections['contact'].description }}</p>
+              <form class="form">
                 <table class="form__table">
                   <tr>
                     <th><label for="yourname">氏名<span class="required">*必須</span></label></th>
@@ -202,138 +200,6 @@
         <small v-html="copyright"></small>
       </footer>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.0/vue.global.js"></script>
-    <script>
-      const data = {
-        data() {
-          return {
-            title: 'Site Title',
-            message: 'Welcome to our website.',
-            sections: {
-              feature: {
-                id: 'feature',
-                name: 'feature',
-                items: [
-                  {
-                    heading: 'feature-1',
-                    src: './assets/sampleImg00.jpg'
-                  },
-                  {
-                    heading: 'feature-2',
-                    src: './assets/sampleImg01.jpg'
-                  },
-                  {
-                    heading: 'feature-3',
-                    src: './assets/sampleImg02.jpg'
-                  },
-                  {
-                    heading: 'feature-4',
-                    src: './assets/sampleImg03.jpg'
-                  }
-                ]
-              },
-              about: {
-                id: 'about',
-                name: 'about',
-                heading: 'Mission',
-                excerpt: 'Our mission is ...',
-                src: './assets/sampleImg01.jpg',
-                more: 'read more'
-              },
-              service: {
-                id: 'service',
-                name: 'service',
-                more: 'read more',
-                items: [
-                  {
-                    date: '2023-01-01',
-                    heading: 'service-1',
-                    tags: ['news', 'info'],
-                    excerpt: 'Today is ...',
-                    src: './assets/sampleImg02.jpg'
-                  },
-                  {
-                    date: '2023-01-02',
-                    heading: 'service-2',
-                    tags: ['news'],
-                    excerpt: 'Today is ...',
-                    src: './assets/sampleImg03.jpg'
-                  },
-                  {
-                    date: '2023-01-03',
-                    heading: 'service-3',
-                    tags: ['info'],
-                    excerpt: 'Today is ...',
-                    src: './assets/sampleImg04.jpg'
-                  }
-                ]
-              },
-              news: {
-                id: 'news',
-                name: 'news',
-                more: 'read more',
-                items: [
-                {
-                    date: '2023-01-01',
-                    heading: 'news-1',
-                    tags: ['news', 'info'],
-                    excerpt: 'Today is ...',
-                    src: './assets/sampleImg03.jpg'
-                  },
-                  {
-                    date: '2023-01-02',
-                    heading: 'news-2',
-                    tags: ['news'],
-                    excerpt: 'Today is ...',
-                    src: './assets/sampleImg04.jpg'
-                  },
-                  {
-                    date: '2023-01-03',
-                    heading: 'news-3',
-                    tags: ['info'],
-                    excerpt: 'Today is ...',
-                    src: './assets/sampleImg05.jpg'
-                  }
-                ]
-              },
-              team: {
-                id: 'team',
-                name: 'team',
-                heading: 'Mission',
-                excerpt: 'Our mission is ...',
-                src: './assets/sampleImg04.jpg',
-                more: 'read more'
-              },
-              access: {
-                id: 'access',
-                name: 'access',
-                src: 'https://www.google.com/maps/embed'
-              },
-              contact: {
-                id: 'contact',
-                name: 'contact'
-              }
-            },
-            social: {
-              twitter: true,
-              facebook: true,
-              instagram: true
-            },
-            copyright: '&copy; 2019 - 2025 QWEL DESIGN'
-          };
-        }
-      }
-
-      Vue.createApp(data).mount('#app');
-    </script>
-    <script src="./js/backToTop.js"></script>
-    <script src="./js/drawerMenu.js"></script>
-    <script src="./js/embed.js"></script>
-    <script src="./js/evilIcons.js"></script>
-    <script src="./js/fader.js"></script>
-    <script src="./js/preloader.js"></script>
-    <script src="./js/responsiveColor.js"></script>
-    <script src="./js/slider.js"></script>
-    <script src="./init.js"></script>
+    <script src="./init.js" type="module"></script>
   </body>
 </html>

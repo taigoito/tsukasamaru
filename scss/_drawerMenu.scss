@@ -2,18 +2,27 @@
  * Component - Drawer Menu
  */
 
-$drawerAlwaysShown:      false !default;
-$drawerBreakpoint:       breakpoint("md") !default;
-$drawerPad:              space() !default;
-$drawerHeight:           3rem !default;
-$drawerBg:               themeColor("lighter") !default;
-$drawerNaviconDarkBg:    transparent !default;
-$drawerNaviconDarkColor: themeColor("primary") !default;
-$drawerCloseDarkBg:      transparent !default;
-$drawerCloseDarkColor:   $bodyBg !default;
-$drawerDarkBg:           themeColor("primary") !default;
-$drawerDarkColor:        $bodyBg !default;
-$drawerImageLighten:     invert(1) grayscale(1) brightness(4) !default;  
+$drawerAlwaysShown:            false !default;
+$drawerBreakpoint:             breakpoint("md") !default;
+$drawerPad:                    space() !default;
+$drawerHeight:                 3rem !default;
+$drawerRounded:                false !default;
+$drawerTransparent:            false !default;
+$drawerBg:                     themeColor("lighter") !default;
+$drawerColor:                  colorYiq(themeColor("lighter")) !default;
+$drawerHoverColor:             themeColor("primary") !default;
+$drawerDarkBg:                 themeColor("primary") !default;
+$drawerDarkColor:              colorYiq(themeColor("primary")) !default;
+$drawerDarkHoverColor:         colorYiq(themeColor("primary")) !default;
+$drawerNaviconBg:              themeColor("lighter") !default;
+$drawerNaviconColor:           colorYiq(themeColor("lighter")) !default;
+$drawerNaviconHoverBg:         themeColor("primary") !default;
+$drawerNaviconHoverColor:      colorYiq(themeColor("primary")) !default;
+$drawerNaviconDarkBg:          themeColor("primary") !default;
+$drawerNaviconDarkColor:       colorYiq(themeColor("primary")) !default;
+$drawerNaviconDarkHoverBg:     themeColor("primaryLight") !default;
+$drawerNaviconDarkHoverColor:  colorYiq(themeColor("primaryLight")) !default;
+$drawerImageLighten:           invert(1) grayscale(1) brightness(4) !default;  
 
 .drawer {
   position: fixed;
@@ -25,9 +34,9 @@ $drawerImageLighten:     invert(1) grayscale(1) brightness(4) !default;
   height: $drawerPad * 2 + $drawerHeight;
   padding: 0; // Reset
   border: 0;
-  background-color: transparent;
+  background-color: transparent; // Reset
   text-align: center;
-  outline: 0;
+  outline: 0; // Reset
   cursor: pointer;
 
   @if $drawerAlwaysShown == false {
@@ -42,27 +51,50 @@ $drawerImageLighten:     invert(1) grayscale(1) brightness(4) !default;
     right: $drawerPad;
     width: $drawerHeight;
     height: $drawerHeight;
-    border-radius: 50%;
-    transition: .25s all ease-in-out;
+    @if $drawerRounded == false {
+      border-radius: 0;
+    } @else {
+      border-radius: 50%;
+    }
+    transition: all 0.5s ease;
   }
 
   &__navicon {
+    z-index: 1110;
+    @if $drawerTransparent == false {
+      background-color: $drawerNaviconBg;
+    } @else {
+      background-color: transparent;
+    }
+    color: $drawerNaviconColor;
     opacity: 0;
-    transform: rotate(-45deg);
+    transform: rotateY(-180deg);
 
-    @at-root .drawer:not(.drawer--active) .drawer__navicon {
+    &:hover {
+      @if $drawerTransparent == false {
+        background-color: $drawerNaviconHoverBg;
+      } @else {
+        background-color: transparent;
+      }
+      color: $drawerNaviconHoverColor;
+    }
+
+    @at-root .drawer:not(.drawer--active):not(.drawer--ready) .drawer__navicon {
       opacity: 1;
-      transform: rotate(0);
+      transform: rotateY(0);
     }
   }
 
   &__close {
+    z-index: 1100;
+    background-color: transparent;
+    color: colorYiq($drawerBg);
     opacity: 1;
-    transform: rotate(0);
+    transform: rotateY(0);
 
     @at-root .drawer:not(.drawer--active) .drawer__close {
       opacity: 0;
-      transform: rotate(45deg);
+      transform: rotateY(180deg);
     }
   }
 
@@ -70,11 +102,15 @@ $drawerImageLighten:     invert(1) grayscale(1) brightness(4) !default;
     .drawer__navicon {
       background-color: $drawerNaviconDarkBg;
       color: $drawerNaviconDarkColor;
+
+      &:hover {
+        background-color: $drawerNaviconDarkHoverBg;
+        color: $drawerNaviconDarkHoverColor;
+      }
     }
     
     .drawer__close {
-      background-color: $drawerCloseDarkBg;
-      color: $drawerCloseDarkColor;
+      color: colorYiq($drawerDarkBg);
     }
   }
 }
@@ -90,7 +126,7 @@ $drawerImageLighten:     invert(1) grayscale(1) brightness(4) !default;
   margin: auto;
   background-color: $drawerBg;
   text-align: center;
-  transition: width ease-in-out .25s;
+  transition: width 0.5s ease;
   
   &:not(.drawerMenu--show) {
     width: 0;
@@ -102,7 +138,7 @@ $drawerImageLighten:     invert(1) grayscale(1) brightness(4) !default;
     align-content: center;
     height: 100%;
     margin: 0;
-    padding-left: 20%;
+    padding-left: 0;
     text-align: left;
     opacity: 1;
     
@@ -126,18 +162,28 @@ $drawerImageLighten:     invert(1) grayscale(1) brightness(4) !default;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    padding-left: 20%;
   }
 
   &__item {
     width: 100%;
     margin: 0;
-    padding-top: space(1);
-    padding-bottom: space(1);
     text-transform: capitalize;
+
+    a {
+      padding-top: space(1);
+      padding-left: 20%;
+      padding-bottom: space(1);
+    }
 
     &--siteBrand {
       padding-top: 1rem;
       padding-bottom: 1rem;
+      font-size: $h1FontSize;
+
+      a {
+        padding: 0 0 0 20%;
+      }
 
       img {
         width: auto;
@@ -146,9 +192,15 @@ $drawerImageLighten:     invert(1) grayscale(1) brightness(4) !default;
     }
 
     &--social {
-      width: 3rem;
+      width: fit-content;
       padding-top: 1rem;
       padding-bottom: 1rem;
+
+      a {
+        width: 3rem;
+        height: 3rem;
+        padding: 0;
+      }
 
       img {
         width: 100%;
@@ -158,7 +210,16 @@ $drawerImageLighten:     invert(1) grayscale(1) brightness(4) !default;
 
     a {
       display: block;
+      color: $drawerColor;
+      fill: $drawerColor;
       text-decoration: none;
+      transition: all 0.25s ease;
+
+      &:hover {
+        background-color: lighten($drawerBg, 5%);
+        color: $drawerHoverColor;
+        fill: $drawerHoverColor;
+      }
     }
   }
 
@@ -169,6 +230,12 @@ $drawerImageLighten:     invert(1) grayscale(1) brightness(4) !default;
       a {
         color: $drawerDarkColor;
         fill: $drawerDarkColor;
+
+        &:hover {
+          background-color: lighten($drawerDarkBg, 5%);
+          color: $drawerDarkHoverColor;
+          fill: $drawerDarkHoverColor;
+        }
       }
 
       img {
