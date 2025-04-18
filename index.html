@@ -16,11 +16,19 @@
               <a href="/demo/">Sample Demo</a>
             </h1>
             <ul class="gNav__primaryMenu --visible_md">
-              <li class="gNav__menuItem" v-for="section in sections"><a :href="`#${section.id}`">{{ section.name }}</a></li>
+              <li class="gNav__menuItem" v-for="section in sections">
+                <a :href="`#${section.id}`" v-html="section.name"></a>
+              </li>
             </ul>
             <ul class="gNav__socialMenu --visible_md">
               <template v-for="(item, key) in social">
-                <li class="gNav__menuItem gNav__menuItem--social" v-if="item"><a :href="`https://${key}.com/`"><span :data-icon="`ei-sc-${key}`" data-size="m"></span></a></li>
+                <li class="gNav__menuItem gNav__menuItem--social" v-if="item">
+                  <a :href="`https://${key}.com/`">
+                    <svg :class="`icon icon--si icon--${key} icon--md`" width="36" height="36" aria-hidden="true">
+                      <use :href="`./assets/icons.svg#si-${key}`"></use>
+                    </svg>
+                  </a>
+                </li>
               </template>
             </ul>
           </nav>
@@ -197,7 +205,7 @@
         </div>
       </div>
       <footer id="footer" class="footer">
-        <small v-html="copyright"></small>
+        <small class="footer__copyright"></small>
       </footer>
     </div>
     <script src="./init.js" type="module"></script>

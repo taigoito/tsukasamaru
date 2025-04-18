@@ -31,6 +31,11 @@
   &__menuItem {
     margin: 0;
 
+    &--social {
+      width: 3rem;
+      text-align: center;
+    }
+
     a {
       display: block;
       line-height: 1;

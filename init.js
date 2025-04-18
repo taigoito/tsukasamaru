@@ -116,11 +116,11 @@ const data = {
         }
       },
       social: {
-        twitter: true,
+        x: true,
         facebook: true,
-        instagram: true
-      },
-      copyright: '&copy; 2019 - 2025 QWEL DESIGN'
+        instagram: true,
+        youtube: false
+      }
     };
   }
 }
@@ -137,13 +137,17 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Auto Copyright
+import AutoCopyright from './js/autoCopyright.js';
+new AutoCopyright(2019, 'QWEL.DESIGN');
+
 // Back To Top
 import BackToTop from './js/backToTop.js';
 new BackToTop();
 
 // Drawer Menu
 import DrawerMenu from './js/drawerMenu.js';
-new DrawerMenu({responsiveColor: true});
+new DrawerMenu();
 
 // Embed
 import Embed from './js/embed.js';
@@ -152,10 +156,6 @@ new Embed();
 // Fader
 import Fader from './js/fader.js';
 new Fader();
-
-// Evil Icons
-import EvilIcons from './js/evilIcons.js';
-new EvilIcons();
 
 // Preloader
 import Preloader from './js/preloader.js';
