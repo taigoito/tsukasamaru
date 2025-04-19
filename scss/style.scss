@@ -24,14 +24,13 @@
 @import "footer";
 
 // Components
+@import "icon";
 @import "backToTop";
 @import "calendar";
 //@import "cover";
 @import "drawerMenu";
 @import "embed";
 @import "icon";
-//@import "preloader";
-//@import "responsiveColor";
 @import "slider";
 
 // Projects
@@ -44,6 +43,6 @@
 // Utility
 //@import "utilities/flex";
 //@import "utilities/flexItem";
-//@import "utilities/spacing";
-//@import "utilities/text";
-//@import "utilities/visibility";
+@import "utilities/spacing";
+@import "utilities/text";
+@import "utilities/visibility";

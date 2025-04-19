@@ -15,8 +15,12 @@ $themeColors:    (
 
 $fontFamilySansSerif:  "Zen Maru Gothic", serif;
 $fontWeightSansSerif:  400;
+$h1FontSize:           2rem;
 
-$drawerNaviconDarkColor: map-get($themeColors, "darkest");
+$iconBg:               map-get($themeColors, "primary");
+$iconHoverBg:          map-get($themeColors, "primaryLight");
+
+$drawerHoverColor:     map-get($themeColors, "lightest");
 
 $sliderAspectRatio:    4 / 3;
 $sliderHeight:         calc(min(100vh, 48rem) - 9rem); // 9rem = $headerHeight * 2

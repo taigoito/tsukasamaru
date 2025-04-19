@@ -5,7 +5,8 @@
  */
 
 export default class DrawerMenu {
-
+  // options
+  // siteBrand, primaryMenu, socialMenu: クローンする対象
   constructor(options = {}) {
     // 設定
     this.darkMode = options.darkMode || false;
@@ -21,21 +22,24 @@ export default class DrawerMenu {
     // 各要素生成
     // .drawer
     this._drawer = document.createElement('button');
-    this._drawer.classList.add('drawer');
-    if (this.darkMode) this._drawer.classList.add('drawer--dark');
+    this._drawer.classList.add('drawer', 'drawer--ready');
 
     // .drawer__navicon
-    this._navicon = document.createElement('span');
-    this._navicon.classList.add('drawer__navicon', 'responsiveColor');
-    this._navicon.dataset.icon = 'ei-navicon';
-    this._navicon.dataset.size = 'm';
+    this._navicon = document.createElement('div');
+    this._navicon.classList.add('drawer__navicon');
+    let icon = document.createElement('div');
+    icon.classList.add('icon', 'icon--menu', 'icon--lg');
+    icon.innerHTML = '<span class="icon__span"></span>';
+    this._navicon.appendChild(icon);
     this._drawer.appendChild(this._navicon);
 
     // .drawer__close
-    this._close = document.createElement('span');
+    this._close = document.createElement('div');
     this._close.classList.add('drawer__close');
-    this._close.dataset.icon = 'ei-close';
-    this._close.dataset.size = 'm';
+    icon = document.createElement('div');
+    icon.classList.add('icon', 'icon--close', 'icon--lg');
+    icon.innerHTML = '<span class="icon__span"></span>';
+    this._close.appendChild(icon);
     this._drawer.appendChild(this._close);
 
     // .drawerMenu
@@ -64,6 +68,11 @@ export default class DrawerMenu {
 
     // イベント登録
     this._handleEvents();
+
+    // 出現アニメーション
+    setTimeout(() => {
+      this._drawer.classList.remove('drawer--ready');
+    }, 1000);
 
   }
 
@@ -128,7 +137,7 @@ export default class DrawerMenu {
     // ブランドロゴ・タイトルをインポート
     const siteBrand = document.createElement('div');
     siteBrand.classList.add('drawerMenu__item', 'drawerMenu__item--siteBrand');
-    siteBrand.appendChild(this._siteBrand.cloneNode(true));
+    siteBrand.innerHTML = this._siteBrand.innerHTML;
     this._menu.appendChild(siteBrand);
 
   }

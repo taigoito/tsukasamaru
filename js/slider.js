@@ -5,7 +5,12 @@
  */
 
 export default class Slider {
-
+  // data属性によるパラメータ管理:
+  // data-is-header: headerに設置 = ドラグ、ホイール操作に対応しない
+  // data-aspect-ratio: アスペクト比 (SCSSも修正が必要)
+  // data-gap: アイテム間隔(px) SCSSで指定不可
+  // data-interval: スライドアニメーション時間間隔
+  // data-duration: スライドアニメーション所要時間
   constructor(elem) {
     // Sliderの各要素
     this._elem = elem || document.querySelector('.slider');
@@ -45,25 +50,19 @@ export default class Slider {
 
     // 自動再生
     if (this.interval >= 1000) this.startInterval();
-
   }
-
 
   // 再生
   startInterval() {
     this._isPlay = true;
     this._timeStart = null;
     this._loop(performance.now());
-
   }
-
 
   // 停止
   stopInterval() {
     this._isPlay = false;
-
   }
-
 
   _loop(timeCurrent) {
     if (!this._timeStart) {
@@ -74,18 +73,14 @@ export default class Slider {
     timeElapsed < this.interval
       ? window.requestAnimationFrame(this._loop.bind(this))
       : this._done();
-
   }
-
 
   _done() {
     if (this._isPlay) {
       this.startInterval();
       this.move(1);
     }
-
   }
-
 
   // sizeを指定して、スライダーを動かす
   move(size, duration = this.duration) {
@@ -119,9 +114,7 @@ export default class Slider {
     this._currentDuration = duration;
     this._timeStart = false;
     this._moving(performance.now());
-
   }
-
 
   _readyMove(size, init = false) {
     const len = this._items.length;
@@ -141,9 +134,7 @@ export default class Slider {
         this._items[j].style.order = parseInt(order) + 1;
       }
     }
-
   }
-
 
   // ナビゲーション(.slider__prev, .slider__next, .slider__nav)を設置
   _setupNavs() {
@@ -151,19 +142,19 @@ export default class Slider {
     this._prev = document.createElement('a');
     this._prev.classList.add('slider__prev');
     this._prev.setAttribute('href', '#');
-    const prevIcon = document.createElement('span');
-    prevIcon.dataset.icon = 'ei-chevron-left';
-    prevIcon.dataset.size = 'l';
-    this._prev.appendChild(prevIcon);
+    let icon = document.createElement('div');
+    icon.classList.add('icon', 'icon--chevron-left', 'icon--md');
+    icon.innerHTML = '<span class="icon__span"></span>';
+    this._prev.appendChild(icon);
 
     // .slider__next
     this._next = document.createElement('a');
     this._next.classList.add('slider__next');
     this._next.setAttribute('href', '#');
-    const nextIcon = document.createElement('span');
-    nextIcon.dataset.icon = 'ei-chevron-right';
-    nextIcon.dataset.size = 'l';
-    this._next.appendChild(nextIcon);
+    icon = document.createElement('div');
+    icon.classList.add('icon', 'icon--chevron-right', 'icon--md');
+    icon.innerHTML = '<span class="icon__span"></span>';
+    this._next.appendChild(icon);
 
     // .slider__nav
     this._nav = document.createElement('ul');
@@ -180,9 +171,7 @@ export default class Slider {
     this._elem.appendChild(this._prev);
     this._elem.appendChild(this._next);
     this._elem.after(this._nav);
-
   }
-
 
   // アイテムが7個未満の場合に予備を連ねておく
   _setupItems() {
@@ -192,9 +181,7 @@ export default class Slider {
         this._inner.appendChild(clone);
       }
     }
-
   }
-
 
   // アイテムのアクティブ状態を管理
   _setActiveTarget() {
@@ -209,9 +196,7 @@ export default class Slider {
     }
     this._navItems = this._nav.children;
     this._navItems[this.currentIndex % this.itemsCount].classList.add('slider__navItem--current');
-
   }
-
 
   _handleEvents() {
     // タッチデバイスの判定
@@ -320,18 +305,14 @@ export default class Slider {
     window.addEventListener('resize', () => {
       this._windowResizeHandler();
     });
-
   }
-
 
   _myStartHandler() {
     // 配列をリセット
     this.dragDistance = [this._x];
     // 自動再生を止める
     this.stopInterval();
-
   }
-
 
   _myMoveHandler() {
     if (this._isDragging && !this.isAnimated) {
@@ -348,9 +329,7 @@ export default class Slider {
       }
       this.distance += distance;
     }
-
   }
-
 
   _myEndHandler() {
     // フリック操作
@@ -375,34 +354,26 @@ export default class Slider {
         this.move(size, this.duration / 2); // 既に引っ張ってきているので、半分の時間
       }
     }
-
   }
-
 
   _myWheelHandler() {
     const delta = this._delta;
     if (delta < 0 && !this.isAnimated) this.move(-1);
     if (delta > 0 && !this.isAnimated) this.move(1);
     this.stopInterval();
-
   }
-
 
   _windowResizeHandler() {
     // 再計算
     this._inner.style.width = `${this._getInnerWidth()}px`;
     this.distance = this._getAdjustedDistance(this.currentIndex);
     this._inner.style.transform = `translateX(${this.distance}px)`;
-
   }
-
 
   _getInnerWidth() {
     const len = this._items.length;
     return this._elem.clientHeight * this.aspectRatio * len + this.gap * (len - 1);
-
   }
-
 
   _getAdjustedDistance(index) {
     const len = this._items.length;
@@ -414,9 +385,7 @@ export default class Slider {
       result -= this.gap;
     }
     return result;
-
   }
-
 
   _moving(timeCurrent) {
     if (!this._timeStart) {
@@ -430,7 +399,6 @@ export default class Slider {
     timeElapsed < this._currentDuration
       ? window.requestAnimationFrame(this._moving.bind(this))
       : this._moved();
-
   }
 
 
@@ -440,7 +408,6 @@ export default class Slider {
     this.isAnimated = false;
     this._setActiveTarget();
     this._windowResizeHandler();
-
   }
 
 
@@ -449,7 +416,5 @@ export default class Slider {
     if (t < 1) return c / 2 * t * t + b;
     t--;
     return -c / 2 * (t * (t - 2) - 1) + b;
-
   }
-
 }

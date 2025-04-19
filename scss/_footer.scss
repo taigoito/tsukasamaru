@@ -19,6 +19,7 @@
   &__socialMenu {
     @include listUnstyled();
     @include row(flex-start);
+    gap: space(3);
     margin: 0;
 
     a {

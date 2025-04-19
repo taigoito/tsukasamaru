@@ -26,7 +26,12 @@
 }
 
 @mixin button($color: "primary", $size: 12rem, $rounded: space(1)) {
-  @include background($color);
+  background-color: themeColor($color);
+
+  &, &:active, &:hover, &:focus {
+    color: colorYiq(themeColor($color));
+  }
+  
   @include makeBlock($size);
   @include makeButton($rounded);
 }
